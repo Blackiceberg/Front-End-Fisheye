@@ -22,7 +22,7 @@ function photographerFactory(data) {
         article.appendChild(h2);
         article.appendChild(h3);
         article.appendChild(h4);
-        article.appendChind(h5);
+        article.appendChild(h5);
         
         return (article);
     }
