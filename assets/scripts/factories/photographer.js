@@ -20,9 +20,9 @@ function photographerFactory(data) {
         
         article.appendChild(img);
         article.appendChild(h2);
-        article.apprendChild(h3);
-        article.apprendChild(h4);
-        article.apprendChind(h5);
+        article.appendChild(h3);
+        article.appendChild(h4);
+        article.appendChind(h5);
         
         return (article);
     }
