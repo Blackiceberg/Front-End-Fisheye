@@ -9,18 +9,22 @@
   </head>
   <body>
     <header>
-      <img src="/assets/images/logo.png" class="logo" />
+      <a href="/index.html"><img src="/assets/images/logo.png" alt="Fisheye Home page" class="logo" /></a>
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <div class="photographer-profile">
+        <h1>name</h1>
+        <p>city, ontry</p>
+        <small>tagline</small>
       </div>
-    </main>
+        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <img class="circle_img" src="/assets/images/photographers/accounts/NabeelBradford.jpg" alt="name">
+      </div>
     <div id="contact_modal">
 			<div class="modal">
-				<header class="callMe">
+				<header>
           <h2>Contactez-moi</h2>
-          
           <img src="/assets/images/icons/close.svg" onclick="closeModal()" />
         </header>
 				<form>
@@ -39,6 +43,9 @@
 				</form>
 			</div>
 		</div>
+  </main>
     <script src="/assets/scripts/utils/contactForm.js"></script>
+    <script src="/assets/scripts/utils/async.js"></script>
+    <script src="/assets/scripts/pages/photographer.js"></script>
   </body>
 </html>

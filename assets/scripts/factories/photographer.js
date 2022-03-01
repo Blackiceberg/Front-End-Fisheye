@@ -2,6 +2,7 @@ function photographerFactory(data) {
     const { name, portrait,city,country,tagline,price, id } = data;
     const picture = `assets/images/photographers/accounts/${portrait}`;
     const pageInterieur = `/html/photographer.html`
+    
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const a = document.createElement('a');
@@ -9,6 +10,7 @@ function photographerFactory(data) {
         a.setAttribute("id", id);
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
+        img.classList.add("circle_img");
         
         const h2 = document.createElement ('h2');
         const h3 = document.createElement ('h3');
