@@ -88,21 +88,21 @@ form textarea{
     max-width: 640px;
 }
 
-.photographer-profile{
+.photographer_profile{
     width: 10em;
 }
 
-.photographer-profile h1{
+.photographer_profile h1{
     font-size: 64px;
     color: #D3573C;
 }
 
-.photographer-profile p{
+.photographer_profile p{
     font-size: 24px;
     line-height: 31px; 
     color: #901C1C;
 }
-.photographer-profile small{
+.photographer_profile small{
     font-size: 18px;
     line-height: 23px;
     color: #525252;

@@ -6,7 +6,6 @@ function photographerFactory(data) {
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const a = document.createElement('a');
-        a.setAttribute("href",pageInterieur)
         a.setAttribute("id", id);
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
@@ -21,33 +20,51 @@ function photographerFactory(data) {
         h3.textContent = city + ', ' + country;
         h4.textContent = tagline;
         h5.textContent = price + '€/Jour';
-       
         article.appendChild(a);
         a.appendChild(img);
         article.appendChild(h2);
         article.appendChild(h3);
         article.appendChild(h4);
         article.appendChild(h5);
-
-
-     /*   //partie page Photographer
-
-      function pageInterieur(){
         
-        const helloContact = document.getElementsByClassName(callMe);
-        helloContact.appendChild(h2);
+
+//page interieur
+function remove () {
+const index = document.getElementById('index');
+index.remove();
+
+};
+
+function creatPage (){
+  const pageInterieur = document.createElement('div');
+  const profil = document.createElement('article');
+  profil.classList.add("photographer_profile");
+  document.getElementById('main').appendChild(pageInterieur);
+  pageInterieur.classList.add("photograph-header");
+  pageInterieur.appendChild(profil);
+  const h1 = document.createElement ('h1');
+  const p = document.createElement ('p');
+  const small = document.createElement('small');
+
+  h1.textContent = name;
+  p.textContent = city + ', ' + country;
+  small.textContent = tagline;
+
+  profil.appendChild(h1);
+  profil.appendChild(p);
+  profil.appendChild(small);
 
 
+};
 
-       }
-
-
-
-*/
+        a.addEventListener("click", function() {
+          remove();
+          creatPage();
+          return(profil);
+        });
          
         return (article);
     }
     return { name, picture, getUserCardDOM }
 }
-
 
