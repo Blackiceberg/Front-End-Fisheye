@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="/assets/css/global.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+   <!--<link rel="icon" type="image/png" href="assets/favicon.png">-->
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <title>Fisheye - photographe </title>
+  </head>
+  <body>
+    <header>
+      <img src="/assets/images/logo.png" class="logo" />
+    </header>
+    <main id="main">
+      <div class="photograph-header">
+        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      </div>
+    </main>
+    <div id="contact_modal">
+			<div class="modal">
+				<header class="callMe">
+          <h2>Contactez-moi</h2>
+          
+          <img src="/assets/images/icons/close.svg" onclick="closeModal()" />
+        </header>
+				<form>
+					<div>
+						<label>Prénom</label>
+						<input type="text" name="prenom"/>
+            <label>Nom</label>
+						<input type="text" name="name"/>
+            <label>Email</label>
+						<input type="email" name="email" />
+            <label for="message">Votre message</label>
+            <textarea name="message">
+            </textarea>
+					</div>
+          <button class="contact_button">Envoyer</button>
+				</form>
+			</div>
+		</div>
+    <script src="/assets/scripts/utils/contactForm.js"></script>
+  </body>
+</html>
