@@ -1,3 +1,6 @@
+const pageInterieur = document.createElement('div');
+
+
 function photographerFactory(data) {
     const { name, portrait,city,country,tagline,price, id } = data;
     const picture = `assets/images/photographers/accounts/${portrait}`;
@@ -33,22 +36,22 @@ function remove () {
 const index = document.getElementById('index');
 const TITRE = document.getElementById('TITRE');
 TITRE.remove();
-
 index.remove();
 
 };
 
 function creatPage (){
   const picture = `assets/images/photographers/accounts/${portrait}`;
-  const pageInterieur = document.createElement('div');
   pageInterieur.setAttribute('id', 'profil');
   const profil = document.createElement('article');
   profil.classList.add("photographer_profile");
   document.getElementById('main').appendChild(pageInterieur);
   pageInterieur.classList.add("photograph-header");
-  
 
-  
+    const form = document.createElement('div');
+    form.setAttribute('id', 'contact_modal');
+
+
   pageInterieur.appendChild(profil);
   const h1 = document.createElement ('h1');
   const p = document.createElement ('p');
@@ -57,8 +60,6 @@ function creatPage (){
   button.classList.add("contact_button")
   button.setAttribute('onclick','displayModal()')
   button.innerHTML = `Contactez-moi`;
-
-
 
 
   h1.textContent = name;
@@ -72,8 +73,7 @@ function creatPage (){
   console.log(pageInterieur);
   console.log(profil);
   pageInterieur.appendChild(img);
-
-  //window.location.href = "html/photographer.html";
+  //formulaire de contact 
 
 };
 

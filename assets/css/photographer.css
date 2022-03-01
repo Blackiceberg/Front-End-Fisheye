@@ -8,8 +8,9 @@
     margin: 0 100px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    padding: 2em;
 }
 
 .contact_button {
@@ -89,21 +90,28 @@ form textarea{
 }
 
 .photographer_profile{
-    width: 15em;
+    flex-flow: row wrap;
+    width: 300px;
 }
 
 .photographer_profile h1{
     font-size: 64px;
+    line-height: 83px;
     color: #D3573C;
+    margin: 0;
 }
 
 .photographer_profile p{
     font-size: 24px;
     line-height: 31px; 
     color: #901C1C;
+    margin: 0.5em 0;
+
 }
 .photographer_profile small{
     font-size: 18px;
     line-height: 23px;
     color: #525252;
+    margin-bottom: 0;
+
 }
