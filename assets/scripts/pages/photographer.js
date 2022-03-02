@@ -1,15 +1,9 @@
 //Mettre le code JavaScript lié à la page photographer.html
-init();
-
-
-
-
-async function profilData(photographersProfile) {
-    const photographersHeader = document.querySelector(".photographer_profile");
-
-    photographersID.forEach((photographer) => {
-        const photographerModel = photographersProfile(photographer);
-        const userCardDOMId = photographerModel.getUserCardDOMId();
-        photographersHeader.appendChild(userCardDOMId);
-    });
-};
+function removeIndex () {
+    const index = document.getElementById('index');
+    const TITRE = document.getElementById('TITRE');
+    TITRE.remove();
+    index.remove();
+  
+    };
+  
