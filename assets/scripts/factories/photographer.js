@@ -1,10 +1,8 @@
-
-
 function photographerFactory(data) {
-    const { name, portrait,city,country,tagline,price, id } = data;
+    const { name, portrait,city,country,tagline,price, id, media } = data;
     const picture = `assets/images/photographers/accounts/${portrait}`;
     //const pageInterieur = `/html/photographer.html`
-    
+    console.log(media);
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const a = document.createElement('a');
@@ -31,33 +29,33 @@ function photographerFactory(data) {
         
  //page interieur
 
-      function createPagePhotographer (){
+    function createPagePhotographer (){
 
-        const profil = document.createElement('article');
-        profil.classList.add("photographer_profile");
-        const h1 = document.createElement ('h1');
-        const p = document.createElement ('p');
-        const small = document.createElement('small');
-        const button = document.createElement ('button');
-        button.classList.add("contact_button")
-        button.setAttribute('onclick','displayModal()')
-        button.innerHTML = `Contactez-moi`;
+      const profil = document.createElement('article');
+      profil.classList.add("photographer_profile");
+      const h1 = document.createElement ('h1');
+      const p = document.createElement ('p');
+      const small = document.createElement('small');
+      const button = document.createElement ('button');
+      button.classList.add("contact_button")
+      button.setAttribute('onclick','displayModal()')
+      button.innerHTML = `Contactez-moi`;
 
-        h1.textContent = name;
-        p.textContent = city + ', ' + country;
-        small.textContent = tagline;
+      h1.textContent = name;
+      p.textContent = city + ', ' + country;
+      small.textContent = tagline;
 
-        
-        const main = document.getElementById('main');
-        const divProfil = document.createElement('div');
-        divProfil.setAttribute('id', 'profil');
-       
-        divProfil.classList.add("photograph-header");
-        main.appendChild(divProfil);
+      
+      const main = document.getElementById('main');
+      const divProfil = document.createElement('div');
+      divProfil.setAttribute('id', 'profil');
+      
+      divProfil.classList.add("photograph-header");
+      main.appendChild(divProfil);
 
-        const divProfilContact = document.createElement('div');
-        main.appendChild(divProfilContact);
-        divProfilContact.setAttribute('id', 'contact_modal');
+      const divProfilContact = document.createElement('div');
+      main.appendChild(divProfilContact);
+      divProfilContact.setAttribute('id', 'contact_modal');
 
      //formulaire de contact 
      const divModal = document.createElement('div');

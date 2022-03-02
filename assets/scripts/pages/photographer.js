@@ -2,8 +2,9 @@
 function removeIndex () {
     const index = document.getElementById('index');
     const TITRE = document.getElementById('TITRE');
-    TITRE.remove();
+    TITRE.style.opacity = '0';
     index.remove();
   
     };
   
+    
