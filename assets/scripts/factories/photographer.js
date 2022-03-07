@@ -1,15 +1,12 @@
-const pageInterieur = document.createElement('div');
-
-
 function photographerFactory(data) {
     const { name, portrait,city,country,tagline,price, id } = data;
     const picture = `assets/images/photographers/accounts/${portrait}`;
-    //const pageInterieur = `/html/photographer.html`
+    const pageProfil = `html/photographer.html/`;
     
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const a = document.createElement('a');
-        a.setAttribute("id", id);
+        a.setAttribute("href", pageProfil);
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
         img.classList.add("circle_img");
@@ -29,59 +26,6 @@ function photographerFactory(data) {
         article.appendChild(h3);
         article.appendChild(h4);
         article.appendChild(h5);
-        
-
-//page interieur
-function remove () {
-const index = document.getElementById('index');
-const TITRE = document.getElementById('TITRE');
-TITRE.remove();
-index.remove();
-
-};
-
-function creatPage (){
-  const picture = `assets/images/photographers/accounts/${portrait}`;
-  pageInterieur.setAttribute('id', 'profil');
-  const profil = document.createElement('article');
-  profil.classList.add("photographer_profile");
-  document.getElementById('main').appendChild(pageInterieur);
-  pageInterieur.classList.add("photograph-header");
-
-    const form = document.createElement('div');
-    form.setAttribute('id', 'contact_modal');
-
-
-  pageInterieur.appendChild(profil);
-  const h1 = document.createElement ('h1');
-  const p = document.createElement ('p');
-  const small = document.createElement('small');
-  const button = document.createElement ('button');
-  button.classList.add("contact_button")
-  button.setAttribute('onclick','displayModal()')
-  button.innerHTML = `Contactez-moi`;
-
-
-  h1.textContent = name;
-  p.textContent = city + ', ' + country;
-  small.textContent = tagline;
-
-  profil.appendChild(h1);
-  profil.appendChild(p);
-  profil.appendChild(small);
-  pageInterieur.appendChild(button);
-  console.log(pageInterieur);
-  console.log(profil);
-  pageInterieur.appendChild(img);
-  //formulaire de contact 
-
-};
-
-        a.addEventListener("click", function() {
-          remove();
-          creatPage();
-          return(profil);
-        });
          
         return (article);
     }
