@@ -5,6 +5,4 @@ async function init() {
     const data = await response.json();
     const {photographers, media } = data;
     displayData(photographers);
-    profilData(photographers);
-
 };
