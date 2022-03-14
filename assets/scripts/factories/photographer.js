@@ -39,10 +39,10 @@ function photographerFactory(data) {
              <article class="photographer_profile">
             <h1>${name}</h1>
              <p>${city}, ${country}</p>
-             <small>tagline</small>
+             <small>${tagline}</small>
              </article>
              <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-             <img class="circle_img" src="/assets/images/photographers/accounts/NabeelBradford.jpg" alt="name">
+             <img class="circle_img" src="assets/images/photographers/accounts/${portrait}" alt="${name}">
              </div>
          <div id="contact_modal">
                  <div class="modal">
