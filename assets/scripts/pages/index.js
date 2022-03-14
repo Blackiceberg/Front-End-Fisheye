@@ -1,4 +1,3 @@
-
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
 
@@ -8,5 +7,5 @@ async function displayData(photographers) {
         photographersSection.appendChild(userCardDOM);
     });
 };
-
 init();
+

@@ -1,7 +1,7 @@
 function photographerFactory(data) {
     const { name, portrait,city,country,tagline,price, id, media } = data;
     const picture = `assets/images/photographers/accounts/${portrait}`;
-    const pageProfil = `html/photographer.html/`;
+    const pageProfil = `photographer.html?id=${id}`;
     
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
@@ -29,6 +29,31 @@ function photographerFactory(data) {
          
         return (article);
     }
-    return { name, picture, getUserCardDOM }
+
+    function getUserProfilDOM (){
+        const main = document.getElementById('main');
+        const mainH1 = document.getElementById('TITRE');
+         main.innerHTML=`
+         </header>
+            <div id="${id}"class="photograph-header">
+             <article class="photographer_profile">
+            <h1>${name}</h1>
+             <p>${city}, ${country}</p>
+             <small>tagline</small>
+             </article>
+             <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+             <img class="circle_img" src="/assets/images/photographers/accounts/NabeelBradford.jpg" alt="name">
+             </div>
+         <div id="contact_modal">
+                 <div class="modal">
+         <header>,`;
+         mainH1.style.opacity="0";
+     
+             return (main);
+         }
+
+
+    return { name, picture, getUserCardDOM, getUserProfilDOM}
 }
+
 
