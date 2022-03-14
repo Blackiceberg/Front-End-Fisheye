@@ -49,7 +49,7 @@
     align-self: start;
 }
 
-.modal header h1 {
+.modal-header h2{
     font-size: 64px;
     font-weight: normal;
     line-height: 83px;

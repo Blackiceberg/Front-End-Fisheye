@@ -33,20 +33,31 @@ function photographerFactory(data) {
     function getUserProfilDOM (){
         const main = document.getElementById('main');
         const mainH1 = document.getElementById('TITRE');
-         main.innerHTML=`
-         </header>
-            <div id="${id}"class="photograph-header">
-             <article class="photographer_profile">
-            <h1>${name}</h1>
-             <p>${city}, ${country}</p>
-             <small>${tagline}</small>
-             </article>
-             <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-             <img class="circle_img" src="assets/images/photographers/accounts/${portrait}" alt="${name}">
-             </div>
+         main.insertAdjacentHTML('afterbegin',`
+        <div id="${id}"class="photograph-header">
+        <article class="photographer_profile">
+            <h1>${name}</h1><p>${city}, ${country}</p><small>${tagline}</small>
+        </article>
+        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <img class="circle_img" src="assets/images/photographers/accounts/${portrait}" alt="${name}">
+        </div>
          <div id="contact_modal">
-                 <div class="modal">
-         <header>,`;
+         <div class="modal"><header class ="modal-header"><h2>Contactez-moi<br>
+         ${name}</h2><img src="assets/images/icons/close.svg" onclick="closeModal()"/></header>
+         <form>
+         <div>
+         <label>Prénom</label>
+         <input type="text" name="prenom"/>
+         <label>Nom</label>
+         <input type="text" name="name"/>
+         <label>Email</label>
+         <input type="email" name="email"/>
+         <label for="message">Votre message</label>
+         <textarea name="message"></textarea>
+         </div>
+         <button class="contact_button">Envoyer</button>
+     </form>
+     </div>`);
          mainH1.style.opacity="0";
      
              return (main);
