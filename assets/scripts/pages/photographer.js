@@ -1,35 +1,23 @@
-//Mettre le code JavaScript lié à la page photographer.html
 
-async function creatProfil() {
-    const id = params.get('id');
-    const data = await response.json();
-    const {photographers, media } = data;
-    displayData(photographers);
-let params = new URLSearchParams(window.location.search);
-const api_urlId = api_url+id;
+//Effacer titre 
+document.getElementById('TITRE').style.opacity="0";
 
-fetch(api_urlId)
-    .then(function(res){
-        if(res.ok){
-            return res.json()
-        }
-    })
-    
-    .then(function(){
-    })
-    .catch(function(err) {
-        // Une erreur est survenue
-      });
+(async function () {
+    const photographerID = getphotographerId()
+    console.log(photographerID)
+    const photographer = getphotographer(photographerID)
+    hydratePhotographer(photographer)
+
+})()
+
+function getphotographerId(){
+   return new URL(location.href).searchParams.get("id")
+} 
+
+function getphotographer(photographerID){
+
 }
 
-async function displayData(photographers) {
-        const photographersDiv = document.querySelector(".photograph-header");
-    
-        photographers.forEach((photographer) => {
-            const photographerModel = photographerFactory(photographer);
-            const userProfilDOM = photographerModel.getUserProfilDOM();
-            photographersDiv.appendChild(userProfilDOM);
-        });
-    };
-   init();
-    
+function hydratePhotographer(photographer){
+
+}
