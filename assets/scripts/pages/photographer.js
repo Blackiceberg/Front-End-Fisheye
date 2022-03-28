@@ -23,8 +23,8 @@ function getPhotographerData(photographerId){
             const country = profil[0].country;
             const tagline = profil[0].tagline;
   
-        const main = document.getElementById("header")
-        main.insertAdjacentHTML('afterend',`<main id="main"> 
+        const profilHydrat = document.getElementById("main")
+        profilHydrat.insertAdjacentHTML('afterbegin',` 
         <div id="index" class="photograph-header">
         <article class="photographer_profile">
             <h1 id="photographer_h1">${prenom}</h1>
@@ -52,12 +52,22 @@ function getPhotographerData(photographerId){
      </form>
      </div>
     </main>`)
-
-
     })
     
     .catch(function(error){
         alert(error)
     })
 
+}
+
+document.getElementById("curent-order").addEventListener('click',switchBTN);
+
+
+function switchBTN(){
+    const switchBTN = document.getElementById("data-order")
+    if (switchBTN.style.opacity === "0"){
+        switchBTN.style.opacity = "100";
+    }else{
+        switchBTN.style.opacity="0";
+    }
 }

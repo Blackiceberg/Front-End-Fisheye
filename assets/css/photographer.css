@@ -116,3 +116,11 @@ form textarea{
     margin-bottom: 0;
 
 }
+
+
+/* Navigation */
+
+.nav{
+ 
+    display: flex;
+}
