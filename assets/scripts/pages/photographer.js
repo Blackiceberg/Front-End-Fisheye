@@ -77,6 +77,6 @@ function switchBTN(){
     console.log(data.value)
     data.addEventListener('click',change);
     function change(){
-    switchBTN.style.display == "bloc", miellhBTN.textContent="merci";
+    switchBTN.style.display == "bloc", miellhBTN.textContent="merci no problemo";
 }
 }
