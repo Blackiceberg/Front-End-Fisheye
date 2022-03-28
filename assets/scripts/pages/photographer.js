@@ -62,12 +62,21 @@ function getPhotographerData(photographerId){
 
 document.getElementById("curent-order").addEventListener('click',switchBTN);
 
-
 function switchBTN(){
     const switchBTN = document.getElementById("data-order")
-    if (switchBTN.style.opacity === "0"){
-        switchBTN.style.opacity = "100";
+    const trieBTN = document.getElementById("curent-order")
+    if (switchBTN.style.opacity === "100" || trieBTN.style.display==="bloc"){
+        switchBTN.style.opacity = "0";
     }else{
-        switchBTN.style.opacity="0";
+        switchBTN.style.opacity="100";
+        trieBTN.style.display="none";
     }
+
+    const miellhBTN = document.getElementById("data-order")
+    const data = document.getElementById("data");
+    console.log(data.value)
+    data.addEventListener('click',change);
+    function change(){
+    switchBTN.style.display == "bloc", miellhBTN.textContent="marieJAnne";
+}
 }

@@ -121,6 +121,11 @@ form textarea{
 /* Navigation */
 
 .nav{
- 
     display: flex;
+}
+
+.nav #data-order{
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
 }
