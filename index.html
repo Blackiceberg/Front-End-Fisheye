@@ -3,33 +3,21 @@
   <head>
     <link href="assets/css/global.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
-    <!--<link rel="icon" type="image/png" href="assets/favicon.png">-->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye</title>
   </head>
   <body>
-    <header id="header">
-        <a href="index.html"><img src="assets/images/logo.png" alt="Fisheye Home page" class="logo" /></a>
-        <h1 id="TITRE">Nos photographes</h1>
+    <header>
+      <a href="index.html"> <img src="assets/images/logo.png" class="decalage" /></a>
+      <h1>Nos photographes</h1>
     </header>
     <main id="main">
-      <div id="index" class="photographer_section">
-        <template id="templatePhotographer">     
-          <article id="photographer_article">
-            <a id="photographer_a" href="photographer.html?id=${photographer.id}">
-              <img id="photographer_img" src="assets/images/photographers/accounts/${photograher.portrait}" class="circle_img">
-            </a>
-            <h2 id="photographer_h2">${photographer.name}</h2>
-            <h3 id="photographer_h3">${photographer.city}, ${photographer.country}</h3>
-            <h4 id="photographer_h4">${photographer.tagline}</h4>
-            <h5 id="photographer_h5">${photographer.price}€/Jour</h5>
-          </article>
-        </template> 
-      </div>
+        <div class="photographer_section"></div>
     </main>
-    <script>
-  </script>
+    <script src="assets/scripts/utils/async.js"></script>
+    <script src="assets/scripts/factories/photographer.js"></script>
     <script src="assets/scripts/pages/index.js"></script>
-    <script src="assets/scripts/utils/contactForm.js"></script>
+
   </body>
 </html>
