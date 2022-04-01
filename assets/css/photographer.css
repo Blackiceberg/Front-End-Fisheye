@@ -120,12 +120,68 @@ form textarea{
 
 /* Navigation */
 
+
+
 .nav{
     display: flex;
+    position: relative;
+
 }
 
 .nav #data-order{
     opacity: 0;
     display: flex;
     flex-direction: column;
+}
+
+.nav #data-order{
+    background-color: #901C1C;
+    border-radius: 5px;
+    left: -8.4em;
+    position: relative;
+    z-index: -2;
+    border: solid 2px #901C1C;
+}
+
+.nav #data-order button{
+    background-color: rgba(440, 432, 433, 0);
+    color: #FFFFFF;
+    width: 170px;
+    text-align: center;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    position: relative;
+    z-index: -1;
+    border-top: solid 1px #FFF;
+    border-radius: 0;
+}
+
+#data-order{
+    height: 170px;
+    width: 170px;
+    
+}
+
+#data-order button{
+    height: 200px;
+}
+
+#curent-order{
+    position: relative;
+    left: 2em;
+    background-color: #901C1C;
+    color:#FFFFFF;
+    width: 170px;
+    text-align: center;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    z-index: 20;
+}
+
+.nav #populary button{
+    border-radius: 0;
 }

@@ -86,20 +86,3 @@ h1 {
     margin: .5em;
 }
 
-
-select{
-    background-color: #901C1C;
-    color:#FFFFFF;
-    height: 50px;
-    width: 170px;
-    text-align: center;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    font-weight: 700;
-}
-
-select:focus{
-    height: 50px;
-    width: 170px;
-}

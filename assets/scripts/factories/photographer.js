@@ -30,9 +30,10 @@ function photographerFactory(data) {
 
     function getUserProfilDOM(){
 
-const profil = document.getElementById('contact_modal');
+const divModal = document.getElementById('contact_modal');
+const main = document.getElementById('main');
 
-profil.insertAdjacentHTML('beforebegin', ` <div id="index" class="photograph-header">
+main.insertAdjacentHTML('beforebegin', `<div id="index" class="photograph-header">
         <article class="photographer_profile">
             <h1 id="photographer_h1">${name}</h1>
             <p id="photographer_location">${city}, ${country}</p>
@@ -41,7 +42,7 @@ profil.insertAdjacentHTML('beforebegin', ` <div id="index" class="photograph-hea
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
         <img class="circle_img" src="${picture}" alt="photo de profil ${name}">
         </div>`)
-profil.insertAdjacentHTML('afterbegin',`<div class="modal"><header class ="modal-header"><h2>Contactez-moi<br>
+divModal.insertAdjacentHTML('afterbegin',`<div class="modal"><header class ="modal-header"><h2>Contactez-moi<br>
        ${name}</h2><img src="assets/images/icons/close.svg" alt="Fermer la fenêtre" onclick="closeModal()"/></header>
        <form>
        <div>
@@ -55,18 +56,8 @@ profil.insertAdjacentHTML('afterbegin',`<div class="modal"><header class ="modal
        <textarea name="message"></textarea>
        </div>
        <button class="contact_button">Envoyer</button>
-   </form>`
-    )
-profil.insertAdjacentHTML('afterend',` 
-<div class="decalage">
-<label for="pet-select">Trier par :</label>
-<select name="pets" id="pet-select">
-    <option value="Popularité">Popularité</option>
-    <option value="Date">Date</option>
-    <option value="Titre">Titre</option>
-</select>
-</div>
-`)
+   </form>`)
+   
 }
     return { name, picture, getUserCardDOM, getUserProfilDOM }
 }

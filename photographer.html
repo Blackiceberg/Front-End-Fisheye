@@ -9,14 +9,25 @@
   </head>
   <body>
     <header>
-     <a href="index.html"> <img src="assets/images/logo.png" class="decalage" /></a>
+      <a href="index.html"> <img src="assets/images/logo.png" class="decalage" /></a>
       <h1 id="TITRE">Nos photographes</h1>
-  </header>
-  <main id="main">
-       <div id="contact_modal">
+    </header>
+    <main id="main">
+      <main id="main">
+        <nav id="NAV" class="nav decalage"> 
+          <p>Trier par</p>
+          <button id="curent-order">Data</button>
+            <div id="data-order">
+              <button id="data">Date</button>
+              <button id="populary">Populaire</button>
+              <button id="title">Titre</button>
+            </div>
+          </nav>
+        </main>
    </div>
-  </main>
-  <script src="assets/scripts/utils/async.js"></script>
+        <div id="contact_modal">
+    </main>
+    <script src="assets/scripts/utils/async.js"></script>
     <script src="assets/scripts/factories/photographer.js"></script>
     <script src="assets/scripts/pages/photographer.js"></script>
     <script src="assets/scripts/utils/contactForm.js"></script>
