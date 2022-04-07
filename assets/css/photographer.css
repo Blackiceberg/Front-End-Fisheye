@@ -47,12 +47,14 @@
 .modal header img {
     cursor: pointer;
     align-self: start;
+    position: relative;
+    left: 94%;   
 }
 
 .modal-header h2{
     font-size: 64px;
     font-weight: normal;
-    line-height: 83px;
+    line-height: 70px;
     color: #000000;
     margin-top: 0;
 }

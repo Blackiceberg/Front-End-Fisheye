@@ -29,9 +29,10 @@ function photographerFactory(data) {
     }
 
     function getUserProfilDOM(){    
-
+        
         const section = document.createElement('section');
         const article = document.createElement( 'article' );
+        const header = document.createElement("header");
         const h1 = document.createElement( 'h1' );
         const p = document.createElement( 'p' );
         const small = document.createElement ('small');
@@ -61,7 +62,8 @@ function photographerFactory(data) {
         article.appendChild(small),section.appendChild(button),section.appendChild(img)
 
         const modal = document.createElement("div");
-        const header = document.createElement("header");
+        const modalAppC = document.getElementById("contact_modal");
+      
         const h2Modal = document.createElement("h2");
         const imgCloseModalUrl = `assets/images/icons/close.svg`;
         const imgCloseModal = document.createElement("img");
@@ -70,29 +72,57 @@ function photographerFactory(data) {
         imgCloseModal.setAttribute("alt", `Fermer la fenêtre`);
         imgCloseModal.setAttribute("onclick", `closeModal()`);
         modal.setAttribute("class", `modal`);
-        header.setAttribute("class", `modal-header`);
 
-        h2Modal.textContent = `Contactez-moi  ${name}`;
-
-
-        article.appendChild(modal), modal.appendChild(header),header.appendChild(h2Modal),
+        h2Modal.textContent = `Contactez-moi ${name}`;
         header.appendChild(imgCloseModal)
 
-        /*<form>
-        <div>
-        <label>Prénom</label>
-        <input type="text" name="prenom"/>
-        <label>Nom</label>
-        <input type="text" name="name"/>
-        <label>Email</label>
-        <input type="email" name="email"/>
-        <label for="message">Votre message</label>
-        <textarea name="message"></textarea>
-        </div>
-        <button class="contact_button">Envoyer</button>
-        </form>*/
-   
+        modalAppC.appendChild(modal), modal.appendChild(header),header.appendChild(h2Modal),
+
+       //Formulaire
+
+        header.setAttribute("class", `modal-header`);
         
+        const form = document.createElement("form");
+        const divForm = document.createElement("div");
+
+        const prenom = document.createElement("label");
+        const inputPrenom = document.createElement("input")
+        inputPrenom.type = "text";
+        inputPrenom.setAttribute("name", `prenom`);
+
+        const nom = document.createElement("label");
+        const inputNom = document.createElement("input")
+        inputNom.type = "text";
+        inputNom.setAttribute("name", `nom`);
+
+        const email = document.createElement("label");
+        const inputEmail = document.createElement("input")
+        inputEmail.type = "email";
+        inputEmail.setAttribute("name", `Email`);
+
+        const message = document.createElement("label");
+        message.setAttribute("for", "message");
+        const texareaMessage = document.createElement("textarea")
+        texareaMessage.setAttribute("name", `message`);
+
+        const buttonValider = document.createElement("button");
+
+        buttonValider.setAttribute("class", `contact_button`);
+
+        prenom.textContent = `Prénom`;
+        nom.textContent = `Nom`;
+        email.textContent = `Email`;
+        message.textContent = `Message`;
+        buttonValider.textContent =`Envoyer`;
+  
+        header.appendChild(form),form.appendChild(divForm);divForm.appendChild(prenom),divForm.appendChild(inputPrenom);
+        divForm.appendChild(nom),divForm.appendChild(inputNom);divForm.appendChild(email),divForm.appendChild(inputEmail);
+        divForm.appendChild(message);divForm.appendChild(texareaMessage);form.appendChild(buttonValider);
+
+
+            
+     
+                   
         return (section);
     }
 
