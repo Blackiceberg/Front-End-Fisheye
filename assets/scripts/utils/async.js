@@ -8,3 +8,5 @@ async function getPhotographers() {
   }; 
 
 }
+
+//getMedia qui me renvoi tout les media 

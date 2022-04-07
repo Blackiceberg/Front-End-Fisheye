@@ -6,29 +6,30 @@ function getPhotographerId (){
     return new URL (location.href).searchParams.get("id")
 }
 const photographerId = getPhotographerId()
-console.log(photographerId)
+//display pour afficher les photographe
 
+async function displayData(photographers) {
+    const photographersMain = document.getElementById("main");
 
-getPhotographers();
-    async function displayData(photographers) {
-        const photographersMain = document.getElementById("main");
+    photographers.forEach((photographer) => {
+        if (photographer.id == photographerId) {
+            const photographerModelId = photographerFactory(photographer);
+            const UserProfilDOM = photographerModelId.getUserProfilDOM();
+            console.log(photographerModelId)
+            photographersMain.appendChild(UserProfilDOM);
+    
+        }
 
-        photographers.forEach((photographer) => {
-            if (photographer.id == photographerId) {
-              const photographerModelId = photographerFactory(photographer);
-              const UserProfilDOM = photographerModelId.getUserProfilDOM();
-              photographersMain.appendChild(UserProfilDOM);
-        
-            }
+    });
+};
 
-        });
-    };
-
-    async function initId() {
-        // Récupère les datas des photographes
-        const { photographers } = await getPhotographers();
-        displayData(photographers);
-    };
+async function initId() {
+    // Récupère les datas des photographes
+    const { photographers } = await getPhotographers();
+    //revoir ma fonction pour renvoyer directement le bon photographe
+    //crée un getMedia() et displayMedia
+    displayData(photographers);
+};
     
 document.getElementById("curent-order").addEventListener('click',switchBTN);
 function switchBTN(){
@@ -48,9 +49,12 @@ function switchBTN(){
         titleBtn.addEventListener('click', switchBTN)
 
     }
+
+
+
+
+
 }
     initId();
     switchBTN();
     
-
- 

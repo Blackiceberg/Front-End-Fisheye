@@ -28,36 +28,78 @@ function photographerFactory(data) {
         return (article);
     }
 
-    function getUserProfilDOM(){
+    function getUserProfilDOM(){    
 
-const divModal = document.getElementById('contact_modal');
-const main = document.getElementById('main');
+        const section = document.createElement('section');
+        const article = document.createElement( 'article' );
+        const h1 = document.createElement( 'h1' );
+        const p = document.createElement( 'p' );
+        const small = document.createElement ('small');
 
-main.insertAdjacentHTML('beforebegin', `<div id="index" class="photograph-header">
-        <article class="photographer_profile">
-            <h1 id="photographer_h1">${name}</h1>
-            <p id="photographer_location">${city}, ${country}</p>
-            <small id="photographer_small">${tagline}</small>
-        </article>
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-        <img class="circle_img" src="${picture}" alt="photo de profil ${name}">
-        </div>`)
-divModal.insertAdjacentHTML('afterbegin',`<div class="modal"><header class ="modal-header"><h2>Contactez-moi<br>
-       ${name}</h2><img src="assets/images/icons/close.svg" alt="Fermer la fenêtre" onclick="closeModal()"/></header>
-       <form>
-       <div>
-       <label>Prénom</label>
-       <input type="text" name="prenom"/>
-       <label>Nom</label>
-       <input type="text" name="name"/>
-       <label>Email</label>
-       <input type="email" name="email"/>
-       <label for="message">Votre message</label>
-       <textarea name="message"></textarea>
-       </div>
-       <button class="contact_button">Envoyer</button>
-   </form>`)
+        section.setAttribute("class", `photograph-header`);
+        article.setAttribute("class", `photographer_profile`);
+        h1.setAttribute("id", `photographer_h1`);
+        p.setAttribute("id", `photographer_location`);
+        small.setAttribute("id", `photographer_small`);
+
+        h1.textContent = name;
+        p.textContent = `${city}, ${country}`;
+        small.textContent = tagline;
+
+        const button = document.createElement("button");
+        const img = document.createElement("img");
+
+        button.setAttribute("onclick", `displayModal()`);
+        button.setAttribute("class", `contact_button`);
+        img.setAttribute("class", `circle_img`);
+        img.setAttribute("src", `${picture}`);
+        img.setAttribute("alt",`photo de profil de ${name}">`);
+
+        button.textContent = `Contactez-moi`;
+                   
+        section.appendChild(article),article.appendChild(h1),article.appendChild(p),
+        article.appendChild(small),section.appendChild(button),section.appendChild(img)
+
+        const modal = document.createElement("div");
+        const header = document.createElement("header");
+        const h2Modal = document.createElement("h2");
+        const imgCloseModalUrl = `assets/images/icons/close.svg`;
+        const imgCloseModal = document.createElement("img");
+
+        imgCloseModal.setAttribute("src", `${imgCloseModalUrl}`);
+        imgCloseModal.setAttribute("alt", `Fermer la fenêtre`);
+        imgCloseModal.setAttribute("onclick", `closeModal()`);
+        modal.setAttribute("class", `modal`);
+        header.setAttribute("class", `modal-header`);
+
+        h2Modal.textContent = `Contactez-moi  ${name}`;
+
+
+        article.appendChild(modal), modal.appendChild(header),header.appendChild(h2Modal),
+        header.appendChild(imgCloseModal)
+
+        /*<form>
+        <div>
+        <label>Prénom</label>
+        <input type="text" name="prenom"/>
+        <label>Nom</label>
+        <input type="text" name="name"/>
+        <label>Email</label>
+        <input type="email" name="email"/>
+        <label for="message">Votre message</label>
+        <textarea name="message"></textarea>
+        </div>
+        <button class="contact_button">Envoyer</button>
+        </form>*/
    
-}
-    return { name, picture, getUserCardDOM, getUserProfilDOM }
+        
+        return (section);
+    }
+
+
+    function UserMedia(){
+
+    }
+
+    return { name, picture, getUserCardDOM, getUserProfilDOM, UserMedia }
 }
