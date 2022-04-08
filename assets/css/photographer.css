@@ -42,6 +42,7 @@
 .modal header {
     justify-content: space-between;
     width: 100%;
+    display: block;
 }
 
 .modal header img {

@@ -35,7 +35,8 @@ function photographerFactory(data) {
         const header = document.createElement("header");
         const h1 = document.createElement( 'h1' );
         const p = document.createElement( 'p' );
-        const small = document.createElement ('small');
+        const small = document.createElement ( 'small' );
+        const linebreak = document.createElement ( 'br' );
 
         section.setAttribute("class", `photograph-header`);
         article.setAttribute("class", `photographer_profile`);
@@ -73,10 +74,9 @@ function photographerFactory(data) {
         imgCloseModal.setAttribute("onclick", `closeModal()`);
         modal.setAttribute("class", `modal`);
 
-        h2Modal.textContent = `Contactez-moi ${name}`;
         header.appendChild(imgCloseModal)
 
-        modalAppC.appendChild(modal), modal.appendChild(header),header.appendChild(h2Modal),
+        modalAppC.appendChild(modal), modal.appendChild(header);
 
        //Formulaire
 
@@ -114,10 +114,12 @@ function photographerFactory(data) {
         email.textContent = `Email`;
         message.textContent = `Message`;
         buttonValider.textContent =`Envoyer`;
-  
+
+        header.insertAdjacentHTML("beforeend", `<h2>Contactez moi  <br> ${name}</h2>`);
         header.appendChild(form),form.appendChild(divForm);divForm.appendChild(prenom),divForm.appendChild(inputPrenom);
         divForm.appendChild(nom),divForm.appendChild(inputNom);divForm.appendChild(email),divForm.appendChild(inputEmail);
         divForm.appendChild(message);divForm.appendChild(texareaMessage);form.appendChild(buttonValider);
+
 
 
             
