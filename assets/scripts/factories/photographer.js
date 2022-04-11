@@ -118,19 +118,16 @@ function photographerFactory(data) {
         header.insertAdjacentHTML("beforeend", `<h2>Contactez moi  <br> ${name}</h2>`);
         header.appendChild(form),form.appendChild(divForm);divForm.appendChild(prenom),divForm.appendChild(inputPrenom);
         divForm.appendChild(nom),divForm.appendChild(inputNom);divForm.appendChild(email),divForm.appendChild(inputEmail);
-        divForm.appendChild(message);divForm.appendChild(texareaMessage);form.appendChild(buttonValider);
-
-
-
-            
-     
-                   
+        divForm.appendChild(message);divForm.appendChild(texareaMessage);form.appendChild(buttonValider);       
         return (section);
     }
 
 
     function UserMedia(){
 
+        
+
+        return(section)
     }
 
     return { name, picture, getUserCardDOM, getUserProfilDOM, UserMedia }

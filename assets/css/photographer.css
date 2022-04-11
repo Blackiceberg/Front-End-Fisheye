@@ -128,14 +128,15 @@ form textarea{
 .nav{
     display: flex;
     position: relative;
+    z-index: 10;
 
 }
 
 .nav #data-order{
-    opacity: 0;
-    display: flex;
+    display: none;
     flex-direction: column;
 }
+
 
 .nav #data-order{
     background-color: #901C1C;
@@ -144,6 +145,7 @@ form textarea{
     position: relative;
     z-index: -2;
     border: solid 2px #901C1C;
+    width: 166.5px;
 }
 
 .nav #data-order button{
@@ -187,4 +189,21 @@ form textarea{
 
 .nav #populary button{
     border-radius: 0;
+}
+
+/*-------------Galery--------------*/
+
+#galeryMedia{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+figure{
+    margin-inline-end: 1.5em;
+
+}
+.galery-medias {
+    height: 300px;
+    width: 350px;
+    object-fit: cover;
 }

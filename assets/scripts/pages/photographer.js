@@ -5,56 +5,74 @@ document.getElementById("TITRE").style.opacity= "0";
 function getPhotographerId (){
     return new URL (location.href).searchParams.get("id")
 }
-const photographerId = getPhotographerId()
-//display pour afficher les photographe
+const photographerIdURL = getPhotographerId()
 
+//display pour afficher les photographe
 async function displayData(photographers) {
     const photographersMain = document.getElementById("main");
-
     photographers.forEach((photographer) => {
-        if (photographer.id == photographerId) {
+        if (photographer.id == photographerIdURL) {
             const photographerModelId = photographerFactory(photographer);
             const UserProfilDOM = photographerModelId.getUserProfilDOM();
-            console.log(photographerModelId)
-            photographersMain.appendChild(UserProfilDOM);
-    
+            photographersMain.appendChild(UserProfilDOM); 
         }
-
     });
 };
+
+
+//display pour afficher la galery
+
+async function displayMedia(medias){
+    const galeryMedia = document.getElementById("galeryMedia");
+    console.log(medias)
+    medias.forEach((media)=>{
+        if (photographerIdURL == media.photographerId) {
+            const galeryMediasId = galeryFactory(media);
+            const UserGaleryDOM = galeryMediasId.getUserGaleryDOM();
+            console.log(galeryMediasId)
+            galeryMedia.appendChild(UserGaleryDOM)
+        }
+    })
+}
+
+
 
 async function initId() {
     // Récupère les datas des photographes
     const { photographers } = await getPhotographers();
     //revoir ma fonction pour renvoyer directement le bon photographe
     //crée un getMedia() et displayMedia
+    const {medias} = await getMedia();
+    displayMedia(medias)
     displayData(photographers);
 };
-    
-document.getElementById("curent-order").addEventListener('click',switchBTN);
+
+const menuBTN = document.getElementById("curent-order")
+const dataBTN = document.getElementById("data")
+const popularyBTN = document.getElementById("populary")
+const titleBTN = document.getElementById("title")
+
+let btn = [dataBTN, popularyBTN, titleBTN, menuBTN];
+
+menuBTN.addEventListener('click',switchBTN)
+popularyBTN.addEventListener('click',switchBTN);
+dataBTN.addEventListener('click',switchBTN)
+titleBTN.addEventListener('click',switchBTN)
+
+
 function switchBTN(){
     const switchBTN = document.getElementById("data-order")
-    if (switchBTN.style.opacity === '0'){
-        switchBTN.style.opacity = '100';
+    if (switchBTN.style.display === 'none'){
+        switchBTN.style.display = 'flex';
     }else{
-        switchBTN.style.opacity='0';
+        switchBTN.style.display='none';
     }
-    function changeLife(){
-        const dataBtn = document.getElementById('data')
-        const popularyBtn = document.getElementById('populary')
-        const titleBtn = document.getElementById('title')
-
-        dataBtn.addEventListener('click', switchBTN)
-        popularyBtn.addEventListener('click',switchBTN )
-        titleBtn.addEventListener('click', switchBTN)
-
-    }
-
-
 
 
 
 }
+
+
     initId();
     switchBTN();
     
