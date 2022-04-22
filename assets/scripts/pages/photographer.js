@@ -6,6 +6,16 @@ function getPhotographerId (){
     return new URL (location.href).searchParams.get("id")
 }
 const photographerIdURL = getPhotographerId()
+async function initId() {
+    // Récupère les datas des photographes
+    const { photographers } = await getPhotographers();
+    //revoir ma fonction pour renvoyer directement le bon photographe
+    //crée un getMedia() et displayMedia
+    const {medias} = await getMedia();
+    // Récupère les datas des Media
+    displayMedia(medias)
+    displayData(photographers);
+};
 
 //display pour afficher les photographe
 async function displayData(photographers) {
@@ -18,7 +28,6 @@ async function displayData(photographers) {
         }
     });
 };
-
 
 //display pour afficher la galery
 
@@ -36,16 +45,6 @@ async function displayMedia(medias){
 }
 
 
-
-async function initId() {
-    // Récupère les datas des photographes
-    const { photographers } = await getPhotographers();
-    //revoir ma fonction pour renvoyer directement le bon photographe
-    //crée un getMedia() et displayMedia
-    const {medias} = await getMedia();
-    displayMedia(medias)
-    displayData(photographers);
-};
 
 const menuBTN = document.getElementById("curent-order")
 const dataBTN = document.getElementById("data")
@@ -71,7 +70,6 @@ function switchBTN(){
 
 
 }
-
 
     initId();
     switchBTN();

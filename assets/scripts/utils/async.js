@@ -2,7 +2,7 @@ async function getPhotographers() {
     // Chargement du Json
     await fetch('assets/scripts/data/photographers.json')
     .then((res) => res.json())
-    .then((data) => (photographers = data.photographers));
+    .then((data) => (photographers = data?.photographers));
   return {
     photographers: [...photographers],
   }; 
@@ -15,8 +15,7 @@ async function getMedia() {
   // Chargement du Json
   await fetch('assets/scripts/data/photographers.json')
   .then((res) => res.json())
-  .then((data) => (medias = data.media));
-  console.log(medias)
+  .then((data) => (medias = data?.media));
 return {
   medias: [...medias],
 }; 

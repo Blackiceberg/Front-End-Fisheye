@@ -9,6 +9,7 @@ function photographerFactory(data) {
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
         img.setAttribute("class", `circle_img`);
+        img.setAttribute("alt", name);
         const pageProfil = "photographer.html?id=" + id;
         const link = document.createElement('a');
         link.setAttribute("href", pageProfil);
@@ -53,6 +54,7 @@ function photographerFactory(data) {
 
         button.setAttribute("onclick", `displayModal()`);
         button.setAttribute("class", `contact_button`);
+        button.setAttribute("alt", `Contact Me`)
         img.setAttribute("class", `circle_img`);
         img.setAttribute("src", `${picture}`);
         img.setAttribute("alt",`photo de profil de ${name}">`);
@@ -84,6 +86,8 @@ function photographerFactory(data) {
         
         const form = document.createElement("form");
         const divForm = document.createElement("div");
+        form.setAttribute("action", ``);
+        form.setAttribute("method", `post`);
 
         const prenom = document.createElement("label");
         const inputPrenom = document.createElement("input")
@@ -108,6 +112,9 @@ function photographerFactory(data) {
         const buttonValider = document.createElement("button");
 
         buttonValider.setAttribute("class", `contact_button`);
+        buttonValider.setAttribute("onclick", `reset()`);
+
+        
 
         prenom.textContent = `Prénom`;
         nom.textContent = `Nom`;
@@ -115,10 +122,11 @@ function photographerFactory(data) {
         message.textContent = `Message`;
         buttonValider.textContent =`Envoyer`;
 
-        header.insertAdjacentHTML("beforeend", `<h2>Contactez moi  <br> ${name}</h2>`);
+        header.insertAdjacentHTML("beforeend", `<h2>Contactez moi<br> ${name}</h2>`);
         header.appendChild(form),form.appendChild(divForm);divForm.appendChild(prenom),divForm.appendChild(inputPrenom);
         divForm.appendChild(nom),divForm.appendChild(inputNom);divForm.appendChild(email),divForm.appendChild(inputEmail);
-        divForm.appendChild(message);divForm.appendChild(texareaMessage);form.appendChild(buttonValider);       
+        divForm.appendChild(message);divForm.appendChild(texareaMessage);form.appendChild(buttonValider);  
+        console.log(form.name);     
         return (section);
     }
 
