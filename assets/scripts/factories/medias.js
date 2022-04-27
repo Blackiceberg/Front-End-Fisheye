@@ -16,6 +16,7 @@ function galeryFactory(data) {
     figureGalery.setAttribute("id", "figure-" + id);
     figureGalery.setAttribute("aria-label", "carte du média " + title);
 
+
     /** LEGENDES(TITRES) */
     const legendGalery = document.createElement("figcaption");
 
@@ -23,6 +24,18 @@ function galeryFactory(data) {
     const legendTitle = document.createElement("span");
     legendTitle.classList.add("legend-title");
     legendTitle.textContent = title;
+
+     /** Like */
+     const like = document.createElement("b");
+     like.classList.add("like");
+     like.textContent = likes;
+
+    /** Picto_Like */
+
+     const pictoLike = document.createElement("i");
+     pictoLike.classList.add("fa-solid", "fa-heart")
+
+
 
    
     /** MEDIAS => vidéo ou image */
@@ -49,6 +62,8 @@ function galeryFactory(data) {
 
     figureGalery.appendChild(legendGalery);
     legendGalery.appendChild(legendTitle);
+    legendGalery.appendChild(like);
+    legendGalery.appendChild(pictoLike);
     return figureGalery;
   }
 

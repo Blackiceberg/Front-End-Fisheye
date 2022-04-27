@@ -211,6 +211,10 @@ figure{
     margin-inline-end: 1.5em;
 
 }
+
+figcaption{
+    display: flex;
+}
 .galery-medias {
     height: 300px;
     width: 350px;
@@ -218,6 +222,23 @@ figure{
 }
 
 .legend-title{
-font-size: 24px;
+font-size: 20px;
 color: #901C1C;
+flex: 2 1 auto;
+font-weight: 400;
+
+}
+
+
+.like{
+font-size: 20px;
+color: #901C1C;
+font-weight: 500;
+margin-right: 2px;
+}
+
+i {
+    color: #901C1C;
+    font-size: 20px;
+    line-height: 25px !important;
 }
