@@ -88,31 +88,40 @@ function photographerFactory(data) {
         const divForm = document.createElement("div");
         form.setAttribute("action", ``);
         form.setAttribute("method", `post`);
+        form.setAttribute("name",`myForm`)
 
         const prenom = document.createElement("label");
         const inputPrenom = document.createElement("input")
         inputPrenom.type = "text";
         inputPrenom.setAttribute("name", `prenom`);
+        inputPrenom.setAttribute("id", `prenom`);
+
 
         const nom = document.createElement("label");
         const inputNom = document.createElement("input")
         inputNom.type = "text";
         inputNom.setAttribute("name", `nom`);
+        inputNom.setAttribute("id", `nom`);
 
         const email = document.createElement("label");
         const inputEmail = document.createElement("input")
         inputEmail.type = "email";
         inputEmail.setAttribute("name", `Email`);
+        inputEmail.setAttribute("id", `email`);
+
 
         const message = document.createElement("label");
         message.setAttribute("for", "message");
         const texareaMessage = document.createElement("textarea")
         texareaMessage.setAttribute("name", `message`);
+        texareaMessage.setAttribute("id", `message`);
+
 
         const buttonValider = document.createElement("button");
 
         buttonValider.setAttribute("class", `contact_button`);
-        buttonValider.setAttribute("onclick", `reset()`);
+        buttonValider.setAttribute("id", `result`);
+        buttonValider.setAttribute("onclick", `vach()`);
 
         
 
@@ -125,8 +134,7 @@ function photographerFactory(data) {
         header.insertAdjacentHTML("beforeend", `<h2>Contactez moi<br> ${name}</h2>`);
         header.appendChild(form),form.appendChild(divForm);divForm.appendChild(prenom),divForm.appendChild(inputPrenom);
         divForm.appendChild(nom),divForm.appendChild(inputNom);divForm.appendChild(email),divForm.appendChild(inputEmail);
-        divForm.appendChild(message);divForm.appendChild(texareaMessage);form.appendChild(buttonValider);  
-        console.log(form.name);     
+        divForm.appendChild(message);divForm.appendChild(texareaMessage);form.appendChild(buttonValider);
         return (section);
     }
 

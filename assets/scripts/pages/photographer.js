@@ -67,8 +67,17 @@ function switchBTN(){
         switchBTN.style.display='none';
     }
 
+}
 
+function vach (){
+const prenom = document.getElementById("prenom").value;
+const nom = document.getElementById("nom").value;
+const email = document.getElementById("email").value;
+const message = document.getElementById("message").value;
 
+const form = `prénom : ${prenom}    nom : ${nom}    email : ${email}    message : ${message}`
+    
+    return console.log(form); 
 }
 
     initId();
