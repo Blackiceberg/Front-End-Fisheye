@@ -31,9 +31,15 @@ function galeryFactory(data) {
      like.textContent = likes;
 
     /** Picto_Like */
-
      const pictoLike = document.createElement("i");
      pictoLike.classList.add("fa-solid", "fa-heart")
+
+
+    /** Compteur_Like */
+    const galeryMedia = document.getElementById("galeryMedia");
+    const compteurLike = document.getElementById("compteurLike");
+    compteurLike.textContent = `${price} € / Jours`;
+    compteurLike.insertAdjacentHTML("afterbegin", `200 000 <i class="fa-solid fa-heart"></i>`);
 
 
 
@@ -64,6 +70,7 @@ function galeryFactory(data) {
     legendGalery.appendChild(legendTitle);
     legendGalery.appendChild(like);
     legendGalery.appendChild(pictoLike);
+    galeryMedia.appendChild(compteurLike);
     return figureGalery;
   }
 

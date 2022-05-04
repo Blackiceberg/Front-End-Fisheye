@@ -242,3 +242,23 @@ i {
     font-size: 20px;
     line-height: 25px !important;
 }
+
+/* Compteur Like */
+.compteur{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: #DB8876;
+    width: 340px;
+    height: 20px;
+    font-size: 20px;
+    margin-right: 25px;
+    padding: 1em;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+}
+
+.compteur i{
+    margin-right: 5em;
+    color: #000000;
+}

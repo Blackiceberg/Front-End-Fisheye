@@ -121,7 +121,7 @@ function photographerFactory(data) {
 
         buttonValider.setAttribute("class", `contact_button`);
         buttonValider.setAttribute("id", `result`);
-        buttonValider.setAttribute("onclick", `vach()`);
+        buttonValider.setAttribute("onclick", `recupForm()`);
 
         
 

@@ -69,7 +69,7 @@ function switchBTN(){
 
 }
 
-function vach (){
+function recupForm (){
 const prenom = document.getElementById("prenom").value;
 const nom = document.getElementById("nom").value;
 const email = document.getElementById("email").value;
