@@ -33,12 +33,10 @@ async function displayData(photographers) {
 
 async function displayMedia(medias){
     const galeryMedia = document.getElementById("galeryMedia");
-    console.log(medias)
     medias.forEach((media)=>{
         if (photographerIdURL == media.photographerId) {
             const galeryMediasId = galeryFactory(media);
             const UserGaleryDOM = galeryMediasId.getUserGaleryDOM();
-            console.log(galeryMediasId)
             galeryMedia.appendChild(UserGaleryDOM)
         }
     })
@@ -69,6 +67,8 @@ function switchBTN(){
 
 }
 
+
+
 function recupForm (){
 const prenom = document.getElementById("prenom").value;
 const nom = document.getElementById("nom").value;
@@ -79,6 +79,7 @@ const form = `prénom : ${prenom}    nom : ${nom}    email : ${email}    message
     
     return console.log(form); 
 }
+
 
     initId();
     switchBTN();

@@ -27,6 +27,11 @@ h1 {
     height: 50px;
     margin-left: 100px;
 }
+#main{
+    margin: 0 100px;
+    display: flex;
+    flex-direction: column-reverse;
+}
 
 .photographer_section {
     display: grid;

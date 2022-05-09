@@ -14,7 +14,6 @@
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -237,10 +236,11 @@ font-weight: 500;
 margin-right: 2px;
 }
 
-i {
+a::before {
     color: #901C1C;
     font-size: 20px;
     line-height: 25px !important;
+    cursor: pointer;
 }
 
 /* Compteur Like */
@@ -258,7 +258,25 @@ i {
     text-align: center;
 }
 
-.compteur i{
+.compteur i {
     margin-right: 5em;
     color: #000000;
+    cursor: pointer;
+}
+
+
+
+/*modal */
+.galeryModal img{
+    width: 100%;
+}
+.galeryModal{
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #000000;
+    opacity: .5;
+    z-index: 10;
 }
