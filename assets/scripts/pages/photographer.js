@@ -84,3 +84,24 @@ const form = `prénom : ${prenom}    nom : ${nom}    email : ${email}    message
     initId();
     switchBTN();
     
+    async function galeryMedia(){
+        /** modal galerie */
+        const img = document.createElement("img");
+        const imgCloseModalUrl = `assets/images/icons/closeRed.svg`;
+        img.setAttribute("src", imgCloseModalUrl);
+        img.setAttribute("id", "close")
+        const galeryModal = document.getElementById("galery_modal");
+        console.log(galeryModal)
+        galeryModal.appendChild(img);
+
+
+        /** modal galerie partie fonctionnel */
+
+        const modal = document.getElementById("galery_modal");
+        const close = document.getElementById("close");
+        const links = document.querySelectorAll(".dur a")
+        console.log(links);
+        
+    }
+
+    galeryMedia();

@@ -19,6 +19,8 @@ function galeryFactory(data) {
     /** LIEN VERS LA GALLERIE*/
     const linkGalery = document.createElement("a");
     linkGalery.setAttribute("href", srcMedia);
+    linkGalery.setAttribute("class", "dur");
+
 
     /** LEGENDES(TITRES) */
     const legendGalery = document.createElement("figcaption");
@@ -28,13 +30,6 @@ function galeryFactory(data) {
     legendTitle.classList.add("legend-title");
     legendTitle.textContent = title;
 
-
-    /** modal galerie */
-    const img = document.createElement("img");
-    const imgCloseModalUrl = `assets/images/icons/close.svg`;
-    img.setAttribute("src", imgCloseModalUrl);
-    const galeryModal = document.getElementById("galery_modal");
-    console.log(galeryModal)
      /** Like */
     
      const like = document.createElement("b");
@@ -81,15 +76,31 @@ function galeryFactory(data) {
       vidPhoto.setAttribute("tabindex", 0);
       linkGalery.appendChild(vidPhoto);
     }
-    galeryModal.appendChild(img);
     figureGalery.appendChild(legendGalery);
     legendGalery.appendChild(legendTitle);
     legendGalery.appendChild(like);
     legendGalery.appendChild(pictoLike);
     galeryMedia.appendChild(compteurLike);
-    return figureGalery, galeryModal;
-    ;
+    return figureGalery;
   }
+  function getGaleryMediaDOM(){
+    /** modal galerie */
+    const img = document.createElement("img");
+    const imgCloseModalUrl = `assets/images/icons/closeRed.svg`;
+    img.setAttribute("src", imgCloseModalUrl);
+    img.classList.add("close")
+    const galeryModal = document.getElementById("galery_modal");
+    console.log(galeryModal)
+    galeryModal.appendChild(img);
+
+
+    /** modal galerie partie fonctionnel */
+
+    const modal = document.getElementById("galery_modal");
+    const close = document.getElementsByClassName(close);
+ 
+}
+
   return {
     id,
     photographerId,
@@ -101,6 +112,7 @@ function galeryFactory(data) {
     price,
     srcMedia,
     getUserGaleryDOM,
+    getGaleryMediaDOM,
   };
 
 

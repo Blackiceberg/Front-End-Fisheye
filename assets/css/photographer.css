@@ -267,10 +267,9 @@ a::before {
 
 
 /*modal */
-.galeryModal img{
-    width: 100%;
-}
+
 .galeryModal{
+    display: none;
     position: fixed;
     left: 0;
     top: 0;
@@ -279,4 +278,25 @@ a::before {
     background-color: #000000;
     opacity: .5;
     z-index: 10;
+}
+.show{
+display: initial;
+}
+.modal-content{
+
+    width: 90%;
+    margin: auto;
+    max-height: 1200px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-content video{
+    width: 100%;
+}
+
+.modal-content img{
+    width: 100%;
 }
