@@ -6,6 +6,7 @@ function galeryFactory(data) {
     srcMedia += image;
   } else {
     srcMedia += video;
+
   }
 
   /** ---------- CREATION DU GABARIT DE LA GALERIE DES MEDIAS DU PHOTOGRAPHE ---------- */
@@ -76,6 +77,7 @@ function galeryFactory(data) {
       vidPhoto.setAttribute("tabindex", 0);
       linkGalery.appendChild(vidPhoto);
     }
+
     figureGalery.appendChild(legendGalery);
     legendGalery.appendChild(legendTitle);
     legendGalery.appendChild(like);
@@ -83,23 +85,41 @@ function galeryFactory(data) {
     galeryMedia.appendChild(compteurLike);
     return figureGalery;
   }
-  function getGaleryMediaDOM(){
-    /** modal galerie */
-    const img = document.createElement("img");
-    const imgCloseModalUrl = `assets/images/icons/closeRed.svg`;
-    img.setAttribute("src", imgCloseModalUrl);
-    img.classList.add("close")
-    const galeryModal = document.getElementById("galery_modal");
-    console.log(galeryModal)
-    galeryModal.appendChild(img);
+
+/** modal galerie */
+
+/** modal galerie partie fonctionnel */
+
+  const modal = document.getElementById("galery_modal");
+  //const close = document.getElementsByClassName(close);
+
+  const img = document.createElement("img");
+  const imgCloseModalUrl = `assets/images/icons/closeRed.svg`;
+  img.setAttribute("src", imgCloseModalUrl);
+  img.classList.add("close")
+  const galeryModal = document.getElementById("galery_modal");
+  console.log(galeryModal)
+  galeryModal.appendChild(img);
+  const links = document.querySelectorAll('a [role="link"]');
+  console.log(links);
+  // ajoute l'écouteur sur les liens 
+  for (let link of links){
+    link.addEventListener("click", function(e){
+    //on desactive le comportement des links
+    e.preventDefault();
+
+    //On ajoute l'image
+    const media = modal.querySelector("#modal-content img");
 
 
-    /** modal galerie partie fonctionnel */
+      //affiché la modale
+      modal.classList.add("show")
+    })
+  
 
-    const modal = document.getElementById("galery_modal");
-    const close = document.getElementsByClassName(close);
- 
 }
+
+
 
   return {
     id,
@@ -111,12 +131,9 @@ function galeryFactory(data) {
     date,
     price,
     srcMedia,
-    getUserGaleryDOM,
-    getGaleryMediaDOM,
+    getUserGaleryDOM
+
   };
-
-
-
 }
 
 

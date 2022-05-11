@@ -9,6 +9,7 @@
     overflow: auto;
     z-index: 20;
     background-color: rgba(0,0,0,0.4);
+    
 }
 
 .photograph-header {
@@ -19,6 +20,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 2em;
+    width: 80%;
 }
 
 .contact_button {
@@ -104,6 +106,7 @@ form textarea{
 .photographer_profile{
     flex-flow: row wrap;
     width: 300px;
+    margin: 0 0 0 1em;
 }
 
 .photographer_profile h1{
@@ -256,6 +259,7 @@ a::before {
     padding: 1em;
     border-radius: 5px 5px 0 0;
     text-align: center;
+    
 }
 
 .compteur i {

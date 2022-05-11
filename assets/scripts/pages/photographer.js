@@ -27,18 +27,21 @@ async function displayData(photographers) {
             photographersMain.appendChild(UserProfilDOM); 
         }
     });
+    
 };
 
 //display pour afficher la galery
 
 async function displayMedia(medias){
     const galeryMedia = document.getElementById("galeryMedia");
+
     medias.forEach((media)=>{
         if (photographerIdURL == media.photographerId) {
             const galeryMediasId = galeryFactory(media);
             const UserGaleryDOM = galeryMediasId.getUserGaleryDOM();
             galeryMedia.appendChild(UserGaleryDOM)
         }
+        
     })
 }
 
@@ -84,24 +87,3 @@ const form = `prénom : ${prenom}    nom : ${nom}    email : ${email}    message
     initId();
     switchBTN();
     
-    async function galeryMedia(){
-        /** modal galerie */
-        const img = document.createElement("img");
-        const imgCloseModalUrl = `assets/images/icons/closeRed.svg`;
-        img.setAttribute("src", imgCloseModalUrl);
-        img.setAttribute("id", "close")
-        const galeryModal = document.getElementById("galery_modal");
-        console.log(galeryModal)
-        galeryModal.appendChild(img);
-
-
-        /** modal galerie partie fonctionnel */
-
-        const modal = document.getElementById("galery_modal");
-        const close = document.getElementById("close");
-        const links = document.querySelectorAll(".dur a")
-        console.log(links);
-        
-    }
-
-    galeryMedia();
