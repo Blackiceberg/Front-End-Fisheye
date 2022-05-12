@@ -22,23 +22,6 @@ function galeryFactory(data) {
     linkGalery.setAttribute("class", "dur");
 
 
-    // fonction close
-    //const close = document.getElementsByClassName(close);
-
-    linkGalery.onclick = function () {
-      const modal = document.getElementById("galery_modal");
-      // crée tout les élements de la modal (crée les dom)
-    
-        console.log(image);
-      //affiché la modale
-      modal.classList.add("show")
-      /**contenu de la modal galery */
-      let imageShow = document.createElement("img")
-      imageShow.setAttribute("src", srcMedia)
-      imageShow.classList.add("imageShow")
-      modal.appendChild(imageShow);
-    }
-
     
 
     /** LEGENDES(TITRES) */
@@ -91,8 +74,32 @@ function galeryFactory(data) {
       vidPhoto.setAttribute("alt", title + ", closeup view");
       vidPhoto.setAttribute("role", "link");
       vidPhoto.setAttribute("tabindex", 0);
+      vidPhoto.setAttribute("autoplay", "true");
+
       linkGalery.appendChild(vidPhoto);
     }
+
+
+
+
+
+    // fonction close
+    //const close = document.getElementsByClassName(close);
+
+    linkGalery.onclick = function () {
+      const modal = document.getElementById("galery_modal");
+      //affiché la modale
+      modal.classList.add("show")
+      /**contenu de la modal galery */
+      linkGalery.classList.add("mediaShow")
+      modal.appendChild(linkGalery);
+    }
+
+
+
+
+
+
 
     figureGalery.appendChild(legendGalery);
     legendGalery.appendChild(legendTitle);

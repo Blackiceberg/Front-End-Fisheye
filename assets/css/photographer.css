@@ -307,27 +307,30 @@ a::before {
 
 .close{
     width: 42px;
-    right: 0;
+    right: 50px;
     position: absolute;
-    top: -350px;
-}
+    top: -400px;
+  }
 
 .arrow {
     position: absolute;
 }
 
 .left{
+    left: 50px;
     transform: rotate(180deg);
 }
 
 .right{
-
+    right: 50px;
 }
 
-.imageShow{
+.mediaShow{
+    display: flex;
+}
+.mediaShow img, .mediaShow video{
     width: 1050px;
     height: 800px;
     object-fit: cover;
-    padding: 2em;
-    
+    align-self: center;    
 }
