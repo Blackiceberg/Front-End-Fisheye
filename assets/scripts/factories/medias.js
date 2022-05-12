@@ -79,21 +79,22 @@ function galeryFactory(data) {
       linkGalery.appendChild(vidPhoto);
     }
     const modal = document.getElementById("galery_modal");
+    let clonelinkGalery = linkGalery.cloneNode([true]);
+
     linkGalery.onclick = function () {
       //affiché la modale
-      var dupNode = linkGalery.cloneNode([true]);
       modal.classList.add("show")
       /**contenu de la modal galery */
-      dupNode.classList.add("mediaShow")
-      modal.appendChild(dupNode);
+      clonelinkGalery.classList.add("mediaShow")
+      clonelinkGalery.setAttribute("id","showDiv")
+      modal.appendChild(clonelinkGalery);
       
     }
     // fonction close
     const close = document.getElementById("close");
       close.onclick = function (){
-        modal.style.display = "none";
-       // var elem = document. getElementById("myDiv"); elem. parentNode. removeChild(elem);
-      
+        modal.classList.remove("show");
+        var elemShow = document.getElementById("showDiv"); elemShow.remove();     
     }
 
 
