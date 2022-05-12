@@ -78,26 +78,23 @@ function galeryFactory(data) {
 
       linkGalery.appendChild(vidPhoto);
     }
-
-
-
-
-
-    // fonction close
-    //const close = document.getElementsByClassName(close);
-
+    const modal = document.getElementById("galery_modal");
     linkGalery.onclick = function () {
-      const modal = document.getElementById("galery_modal");
       //affiché la modale
+      var dupNode = linkGalery.cloneNode([true]);
       modal.classList.add("show")
       /**contenu de la modal galery */
-      linkGalery.classList.add("mediaShow")
-      modal.appendChild(linkGalery);
+      dupNode.classList.add("mediaShow")
+      modal.appendChild(dupNode);
+      
     }
-
-
-
-
+    // fonction close
+    const close = document.getElementById("close");
+      close.onclick = function (){
+        modal.style.display = "none";
+       // var elem = document. getElementById("myDiv"); elem. parentNode. removeChild(elem);
+      
+    }
 
 
 
