@@ -18,10 +18,28 @@ function galeryFactory(data) {
     figureGalery.setAttribute("aria-label", "carte du média " + title);
 
     /** LIEN VERS LA GALLERIE*/
-    const linkGalery = document.createElement("a");
-    linkGalery.setAttribute("href", srcMedia);
+    const linkGalery = document.createElement("div");
     linkGalery.setAttribute("class", "dur");
 
+
+    // fonction close
+    //const close = document.getElementsByClassName(close);
+
+    linkGalery.onclick = function () {
+      const modal = document.getElementById("galery_modal");
+      // crée tout les élements de la modal (crée les dom)
+    
+        console.log(image);
+      //affiché la modale
+      modal.classList.add("show")
+      /**contenu de la modal galery */
+      let imageShow = document.createElement("img")
+      imageShow.setAttribute("src", srcMedia)
+      imageShow.classList.add("imageShow")
+      modal.appendChild(imageShow);
+    }
+
+    
 
     /** LEGENDES(TITRES) */
     const legendGalery = document.createElement("figcaption");
@@ -41,8 +59,11 @@ function galeryFactory(data) {
     /** Picto_Like */
      const pictoLike = document.createElement("a");
      pictoLike.classList.add("fa-solid", "fa-heart")
-     let likeBTN = document.getElementById ("likeBTN"); 
-
+     pictoLike.onclick = function () {
+      like.textContent = likes + 1;
+      let compteurLike = document.getElementById("compteurLike");
+      compteurLike.textContent = parseInt(compteurLike.innerHTML)+1;
+     } 
 
     const galeryMedia = document.getElementById("galeryMedia");
     const compteurLike = document.getElementById("compteurLike");
@@ -50,12 +71,7 @@ function galeryFactory(data) {
     compteurLike.textContent = `${price} € / Jours`;
     compteurLike.insertAdjacentHTML("afterbegin", `<i class="fa-solid fa-heart"></i>`);
 
-
-     //**systeme like */
-     //pictoLike.addEventListener("click", addOne());
-
     /** MEDIAS => vidéo ou image */
-    
     figureGalery.appendChild(linkGalery);
     if (image) {
       const imgPhoto = document.createElement("img");
@@ -90,13 +106,9 @@ function galeryFactory(data) {
 
 /** modal galerie partie fonctionnel */
 
-  const modal = document.getElementById("galery_modal");
-  //const close = document.getElementsByClassName(close);
 
-  const img = document.createElement("img");
-  const imgCloseModalUrl = `assets/images/icons/closeRed.svg`;
-  img.setAttribute("src", imgCloseModalUrl);
-  img.classList.add("close")
+  /*
+
   const galeryModal = document.getElementById("galery_modal");
   console.log(galeryModal)
   galeryModal.appendChild(img);
@@ -112,12 +124,9 @@ function galeryFactory(data) {
     const media = modal.querySelector("#modal-content img");
 
 
-      //affiché la modale
-      modal.classList.add("show")
+    
     })
-  
-
-}
+}*/
 
 
 

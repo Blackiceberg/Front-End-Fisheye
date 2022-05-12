@@ -34,18 +34,18 @@ async function displayData(photographers) {
 
 async function displayMedia(medias){
     const galeryMedia = document.getElementById("galeryMedia");
-
+    var totalLike = 0;
     medias.forEach((media)=>{
         if (photographerIdURL == media.photographerId) {
+            totalLike += media.likes
             const galeryMediasId = galeryFactory(media);
             const UserGaleryDOM = galeryMediasId.getUserGaleryDOM();
             galeryMedia.appendChild(UserGaleryDOM)
         }
-        
     })
+    var compteurLike = document.getElementById("compteurLike");
+    compteurLike.textContent = totalLike;
 }
-
-
 
 const menuBTN = document.getElementById("curent-order")
 const dataBTN = document.getElementById("data")
@@ -86,4 +86,7 @@ const form = `prénom : ${prenom}    nom : ${nom}    email : ${email}    message
 
     initId();
     switchBTN();
+  
     
+
+

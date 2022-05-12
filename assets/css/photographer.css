@@ -17,10 +17,11 @@
     height: 300px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 2em;
     width: 80%;
+    margin: 0 auto;
 }
 
 .contact_button {
@@ -207,6 +208,7 @@ form textarea{
 #galeryMedia{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 figure{
@@ -279,13 +281,14 @@ a::before {
     top: 0;
     bottom: 0;
     right: 0;
-    background-color: #000000;
-    opacity: .5;
+    background-color: white;
     z-index: 10;
 }
 .show{
-display: initial;
+    display: flex;
+    justify-content: center;
 }
+
 .modal-content{
 
     width: 90%;
@@ -301,6 +304,30 @@ display: initial;
     width: 100%;
 }
 
-.modal-content img{
-    width: 100%;
+
+.close{
+    width: 42px;
+    right: 0;
+    position: absolute;
+    top: -350px;
+}
+
+.arrow {
+    position: absolute;
+}
+
+.left{
+    transform: rotate(180deg);
+}
+
+.right{
+
+}
+
+.imageShow{
+    width: 1050px;
+    height: 800px;
+    object-fit: cover;
+    padding: 2em;
+    
 }
