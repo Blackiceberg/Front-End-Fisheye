@@ -309,7 +309,7 @@ a::before {
     width: 42px;
     right: 50px;
     position: absolute;
-    top: -400px;
+    bottom: 260px;
   }
 
 .arrow {
@@ -328,9 +328,13 @@ a::before {
 .mediaShow{
     display: flex;
 }
+
+.active{
+    visibility: collapse;
+}
 .mediaShow img, .mediaShow video{
-    width: 1050px;
-    height: 800px;
+    width: 900px;
+    height: 600px;
     object-fit: cover;
-    align-self: center;    
+    align-self: center;
 }

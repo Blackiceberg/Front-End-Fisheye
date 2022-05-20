@@ -1,92 +1,89 @@
 //Mettre le code JavaScript lié à la page photographer.html
-document.getElementById("TITRE").style.opacity= "0";
+document.getElementById("TITRE").style.opacity = "0";
 
 //va chercher l'ID dans l'url
-function getPhotographerId (){
-    return new URL (location.href).searchParams.get("id")
+function getPhotographerId() {
+  return new URL(location.href).searchParams.get("id");
 }
-const photographerIdURL = getPhotographerId()
+const photographerIdURL = getPhotographerId();
 async function initId() {
-    // Récupère les datas des photographes
-    const { photographers } = await getPhotographers();
-    //revoir ma fonction pour renvoyer directement le bon photographe
-    //crée un getMedia() et displayMedia
-    const {medias} = await getMedia();
-    // Récupère les datas des Media
-    displayMedia(medias)
-    displayData(photographers);
-};
+  // Récupère les datas des photographes
+  const { photographers } = await getPhotographers();
+  //revoir ma fonction pour renvoyer directement le bon photographe
+  //crée un getMedia() et displayMedia
+  const { medias } = await getMedia();
+  // Récupère les datas des Media
+  displayMedia(medias);
+  displayData(photographers);
+}
 
 //display pour afficher les photographe
 async function displayData(photographers) {
-    const photographersMain = document.getElementById("main");
-    photographers.forEach((photographer) => {
-        if (photographer.id == photographerIdURL) {
-            const photographerModelId = photographerFactory(photographer);
-            const UserProfilDOM = photographerModelId.getUserProfilDOM();
-            photographersMain.appendChild(UserProfilDOM); 
-        }
-    });
-    
-};
+  const photographersMain = document.getElementById("main");
+  photographers.forEach((photographer) => {
+    if (photographer.id == photographerIdURL) {
+      const photographerModelId = photographerFactory(photographer);
+      const UserProfilDOM = photographerModelId.getUserProfilDOM();
+      photographersMain.appendChild(UserProfilDOM);
+    }
+  });
+}
 
 //display pour afficher la galery
 
-async function displayMedia(medias){
-    const galeryMedia = document.getElementById("galeryMedia");
-    var totalLike = 0;
-    medias.forEach((media)=>{
-        if (photographerIdURL == media.photographerId) {
-            totalLike += media.likes
-            const galeryMediasId = galeryFactory(media);
-            const UserGaleryDOM = galeryMediasId.getUserGaleryDOM();
-            galeryMedia.appendChild(UserGaleryDOM)
-        }
-    })
-    var compteurLike = document.getElementById("compteurLike");
-    compteurLike.textContent = totalLike;
+async function displayMedia(medias) {
+  const galeryMedia = document.getElementById("galeryMedia");
+  var totalLike = 0;
+  medias.forEach((media) => {
+    if (photographerIdURL == media.photographerId) {
+      totalLike += media.likes;
+      const galeryMediasId = galeryFactory(media);
+      const UserGaleryDOM = galeryMediasId.getUserGaleryDOM();
+      galeryMedia.appendChild(UserGaleryDOM);
+    }
+  });
+  var compteurLike = document.getElementById("compteurLike");
+  compteurLike.textContent = totalLike;
 }
 
-const menuBTN = document.getElementById("curent-order")
-const dataBTN = document.getElementById("data")
-const popularyBTN = document.getElementById("populary")
-const titleBTN = document.getElementById("title")
+const menuBTN = document.getElementById("curent-order");
+const dataBTN = document.getElementById("data");
+const popularyBTN = document.getElementById("populary");
+const titleBTN = document.getElementById("title");
 
 let btn = [dataBTN, popularyBTN, titleBTN, menuBTN];
 
-menuBTN.addEventListener('click',switchBTN)
-popularyBTN.addEventListener('click',switchBTN);
-dataBTN.addEventListener('click',switchBTN)
-titleBTN.addEventListener('click',switchBTN)
+menuBTN.addEventListener("click", switchBTN);
+popularyBTN.addEventListener("click", switchBTN);
+dataBTN.addEventListener("click", switchBTN);
+titleBTN.addEventListener("click", switchBTN);
 
+function switchBTN() {
+  const switchBTN = document.getElementById("data-order");
+  if (switchBTN.style.display === "none") {
+    switchBTN.style.display = "flex";
+  } else {
+    switchBTN.style.display = "none";
+  }
+}
 
-function switchBTN(){
-    const switchBTN = document.getElementById("data-order")
-    if (switchBTN.style.display === 'none'){
-        switchBTN.style.display = 'flex';
-    }else{
-        switchBTN.style.display='none';
-    }
+function recupForm() {
+  const prenom = document.getElementById("prenom").value;
+  const nom = document.getElementById("nom").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
 
+  const form = `prénom : ${prenom}    nom : ${nom}    email : ${email}    message : ${message}`;
+
+  return console.log(form);
 }
 
 
 
-function recupForm (){
-const prenom = document.getElementById("prenom").value;
-const nom = document.getElementById("nom").value;
-const email = document.getElementById("email").value;
-const message = document.getElementById("message").value;
-
-const form = `prénom : ${prenom}    nom : ${nom}    email : ${email}    message : ${message}`
-    
-    return console.log(form); 
-}
 
 
-    initId();
-    switchBTN();
-  
-    
 
 
+
+initId();
+switchBTN();

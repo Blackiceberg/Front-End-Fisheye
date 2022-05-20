@@ -6,7 +6,6 @@ function galeryFactory(data) {
     srcMedia += image;
   } else {
     srcMedia += video;
-
   }
 
   /** ---------- CREATION DU GABARIT DE LA GALERIE DES MEDIAS DU PHOTOGRAPHE ---------- */
@@ -19,10 +18,6 @@ function galeryFactory(data) {
 
     /** LIEN VERS LA GALLERIE*/
     const linkGalery = document.createElement("div");
-    linkGalery.setAttribute("class", "dur");
-
-
-    
 
     /** LEGENDES(TITRES) */
     const legendGalery = document.createElement("figcaption");
@@ -32,27 +27,30 @@ function galeryFactory(data) {
     legendTitle.classList.add("legend-title");
     legendTitle.textContent = title;
 
-     /** Like */
-    
-     const like = document.createElement("b");
-     like.classList.add("like");
-     like.setAttribute("id", "likeBTN")
-     like.textContent = likes;
+    /** Like */
+
+    const like = document.createElement("b");
+    like.classList.add("like");
+    like.setAttribute("id", "likeBTN");
+    like.textContent = likes;
 
     /** Picto_Like */
-     const pictoLike = document.createElement("a");
-     pictoLike.classList.add("fa-solid", "fa-heart")
-     pictoLike.onclick = function () {
+    const pictoLike = document.createElement("a");
+    pictoLike.classList.add("fa-solid", "fa-heart");
+    pictoLike.onclick = function () {
       like.textContent = likes + 1;
       let compteurLike = document.getElementById("compteurLike");
-      compteurLike.textContent = parseInt(compteurLike.innerHTML)+1;
-     } 
+      compteurLike.textContent = parseInt(compteurLike.innerHTML) + 1;
+    };
 
     const galeryMedia = document.getElementById("galeryMedia");
     const compteurLike = document.getElementById("compteurLike");
 
     compteurLike.textContent = `${price} € / Jours`;
-    compteurLike.insertAdjacentHTML("afterbegin", `<i class="fa-solid fa-heart"></i>`);
+    compteurLike.insertAdjacentHTML(
+      "afterbegin",
+      `<i class="fa-solid fa-heart"></i>`
+    );
 
     /** MEDIAS => vidéo ou image */
     figureGalery.appendChild(linkGalery);
@@ -81,36 +79,44 @@ function galeryFactory(data) {
     const modal = document.getElementById("galery_modal");
     let clonelinkGalery = linkGalery.cloneNode([true]);
 
+    const items = document.querySelectorAll("figure");
+    const nbSlide = items.length;
+    const suivant = document.querySelector(".right");
+    const precedent = document.querySelector(".left");
+    let count = 0;
+
     linkGalery.onclick = function () {
       //affiché la modale
-      modal.classList.add("show")
+      modal.classList.add("show");
       /**contenu de la modal galery */
-      clonelinkGalery.classList.add("mediaShow")
-      clonelinkGalery.setAttribute("id","showDiv")
+      clonelinkGalery.classList.add("mediaShow");
+      clonelinkGalery.setAttribute("id", "showDiv");
       modal.appendChild(clonelinkGalery);
-      
-    }
+    };
     // fonction close
+    var elemShow = document.getElementById("showDiv");
     const close = document.getElementById("close");
-      close.onclick = function (){
-        modal.classList.remove("show");
-        var elemShow = document.getElementById("showDiv"); elemShow.remove();     
-    }
-
-
+    close.onclick = function () {
+      modal.classList.remove("show");
+      elemShow.remove();
+    };
 
     figureGalery.appendChild(legendGalery);
     legendGalery.appendChild(legendTitle);
     legendGalery.appendChild(like);
     legendGalery.appendChild(pictoLike);
     galeryMedia.appendChild(compteurLike);
+
+    suivant.onclick = function slideSuivant() {
+      var elemShow = document.getElementById("showDiv");
+      elemShow.remove();
+    };
     return figureGalery;
   }
 
-/** modal galerie */
+  /** modal galerie */
 
-/** modal galerie partie fonctionnel */
-
+  /** modal galerie partie fonctionnel */
 
   /*
 
@@ -133,8 +139,6 @@ function galeryFactory(data) {
     })
 }*/
 
-
-
   return {
     id,
     photographerId,
@@ -145,10 +149,6 @@ function galeryFactory(data) {
     date,
     price,
     srcMedia,
-    getUserGaleryDOM
-
+    getUserGaleryDOM,
   };
 }
-
-
-   
