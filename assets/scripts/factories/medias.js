@@ -9,6 +9,7 @@ function galeryFactory(data) {
   }
 
   /** ---------- CREATION DU GABARIT DE LA GALERIE DES MEDIAS DU PHOTOGRAPHE ---------- */
+
   function getUserGaleryDOM() {
     /** FIGURES pour chaque médias */
     const figureGalery = document.createElement("figure");
@@ -18,6 +19,7 @@ function galeryFactory(data) {
 
     /** LIEN VERS LA GALLERIE*/
     const linkGalery = document.createElement("div");
+    figureGalery.appendChild(linkGalery);
 
     /** LEGENDES(TITRES) */
     const legendGalery = document.createElement("figcaption");
@@ -53,6 +55,7 @@ function galeryFactory(data) {
     );
 
     /** MEDIAS => vidéo ou image */
+    const modal = document.getElementById("galery_modal");
     figureGalery.appendChild(linkGalery);
     if (image) {
       const imgPhoto = document.createElement("img");
@@ -74,43 +77,87 @@ function galeryFactory(data) {
       vidPhoto.setAttribute("tabindex", 0);
       vidPhoto.setAttribute("autoplay", "true");
 
-      linkGalery.appendChild(vidPhoto);
+      linkGalery.insertBefore(vidPhoto, linkGalery.firstChild);
     }
-    const modal = document.getElementById("galery_modal");
-    let clonelinkGalery = linkGalery.cloneNode([true]);
 
-    const items = document.querySelectorAll("figure");
-    const nbSlide = items.length;
+    //let clonelinkGalery = linkGalery.cloneNode([true]);
+
+    //const items = document.querySelectorAll("figure");
+    //const nbSlide = items.length;
+
+    //console.table(items);
+    const galerieContent = document.getElementById("modal-content");
+    const items = document.querySelectorAll('[role="link"]');
+    let nbItems = items.length;
+    let count = 0;
+
+    console.log(items[3]);
+
     const suivant = document.querySelector(".right");
     const precedent = document.querySelector(".left");
-    let count = 0;
+
+    suivant.onclick = function () {
+      galerieContent.removeChild(galerieContent.lastChild);
+      galerieContent.insertAdjacentHTML(
+        "beforeend",
+        `<img class="galery-medias" src='${items[nbItems++].src}' />`
+      );
+    };
+
+    precedent.onclick = function () {
+      galerieContent.removeChild(galerieContent.lastChild);
+      galerieContent.insertAdjacentHTML(
+        "beforeend",
+        `<img class="galery-medias" src='${items[nbItems--].src}' />`
+      );
+    };
 
     linkGalery.onclick = function () {
       //affiché la modale
       modal.classList.add("show");
+      figureGalery.appendChild(linkGalery);
+      if (image) {
+        const imgPhoto = document.createElement("img");
+        imgPhoto.classList.add("galery-medias");
+        imgPhoto.setAttribute("src", srcMedia);
+        imgPhoto.setAttribute("data-mediaid", id);
+        imgPhoto.setAttribute("alt", title + ", closeup view");
+        imgPhoto.setAttribute("role", "link");
+        imgPhoto.setAttribute("tabindex", 0);
+        galerieContent.appendChild(imgPhoto);
+      } else {
+        const vidPhoto = document.createElement("video");
+        vidPhoto.classList.add("galery-medias");
+        vidPhoto.setAttribute("type", "video/mp4");
+        vidPhoto.setAttribute("src", srcMedia);
+        vidPhoto.setAttribute("data-mediaid", id);
+        vidPhoto.setAttribute("alt", title + ", closeup view");
+        vidPhoto.setAttribute("role", "link");
+        vidPhoto.setAttribute("tabindex", 0);
+        vidPhoto.setAttribute("autoplay", "true");
+
+        galerieContent.appendChild(vidPhoto);
+      }
       /**contenu de la modal galery */
-      clonelinkGalery.classList.add("mediaShow");
-      clonelinkGalery.setAttribute("id", "showDiv");
-      modal.appendChild(clonelinkGalery);
+      //modal.appendChild(clonelinkGalery);
     };
     // fonction close
-    var elemShow = document.getElementById("showDiv");
     const close = document.getElementById("close");
     close.onclick = function () {
       modal.classList.remove("show");
-      elemShow.remove();
     };
 
-    figureGalery.appendChild(legendGalery);
+    figureGalery.appendChild(legendGalery).lastChild;
     legendGalery.appendChild(legendTitle);
     legendGalery.appendChild(like);
     legendGalery.appendChild(pictoLike);
     galeryMedia.appendChild(compteurLike);
 
-    suivant.onclick = function slideSuivant() {
-      var elemShow = document.getElementById("showDiv");
-      elemShow.remove();
-    };
+    //suivant.onclick = function slideSuivant() {
+    // var elemShow = document.getElementById("showDiv");
+    // elemShow.remove();
+    //};
+
     return figureGalery;
   }
 
@@ -138,7 +185,6 @@ function galeryFactory(data) {
     
     })
 }*/
-
   return {
     id,
     photographerId,
