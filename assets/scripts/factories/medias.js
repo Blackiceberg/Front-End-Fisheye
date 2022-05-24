@@ -60,8 +60,8 @@ function galeryFactory(data) {
     if (image) {
       const imgPhoto = document.createElement("img");
       imgPhoto.classList.add("galery-medias");
-      imgPhoto.setAttribute("src", srcMedia);
       imgPhoto.setAttribute("data-mediaid", id);
+      imgPhoto.setAttribute("src", srcMedia);
       imgPhoto.setAttribute("alt", title + ", closeup view");
       imgPhoto.setAttribute("role", "link");
       imgPhoto.setAttribute("tabindex", 0);
@@ -88,27 +88,45 @@ function galeryFactory(data) {
     //console.table(items);
     const galerieContent = document.getElementById("modal-content");
     const items = document.querySelectorAll('[role="link"]');
-    let nbItems = items.length;
+    let nbSlide = items.length;
     let count = 0;
 
-    console.log(items[3]);
+    function slideSuivant() {
+      galerieContent.removeChild(galerieContent.lastChild);
+      if (count < nbSlide - 1) {
+        count++;
+      } else {
+        count = 0;
+      }
+      console.log(count);
+    }
+
+    function slidePrecedent() {
+      galerieContent.removeChild(galerieContent.lastChild);
+      if (count > 0) {
+        count--;
+      } else {
+        count = nbSlide - 1;
+        console.log(count);
+      }
+    }
 
     const suivant = document.querySelector(".right");
     const precedent = document.querySelector(".left");
 
     suivant.onclick = function () {
-      galerieContent.removeChild(galerieContent.lastChild);
+      slideSuivant();
       galerieContent.insertAdjacentHTML(
         "beforeend",
-        `<img class="galery-medias" src='${items[nbItems++].src}' />`
+        `<img class="galery-medias modal-content" src='${items[count].src}' />`
       );
     };
 
     precedent.onclick = function () {
-      galerieContent.removeChild(galerieContent.lastChild);
+      slidePrecedent();
       galerieContent.insertAdjacentHTML(
         "beforeend",
-        `<img class="galery-medias" src='${items[nbItems--].src}' />`
+        `<img class="galery-medias modal-content" src='${items[count].src}' />`
       );
     };
 
@@ -119,6 +137,7 @@ function galeryFactory(data) {
       if (image) {
         const imgPhoto = document.createElement("img");
         imgPhoto.classList.add("galery-medias");
+        imgPhoto.classList.add("modal-content");
         imgPhoto.setAttribute("src", srcMedia);
         imgPhoto.setAttribute("data-mediaid", id);
         imgPhoto.setAttribute("alt", title + ", closeup view");
@@ -128,6 +147,8 @@ function galeryFactory(data) {
       } else {
         const vidPhoto = document.createElement("video");
         vidPhoto.classList.add("galery-medias");
+        vidPhoto.classList.add("modal-content");
+        vidPhoto.classList.add("class", "mediaShow");
         vidPhoto.setAttribute("type", "video/mp4");
         vidPhoto.setAttribute("src", srcMedia);
         vidPhoto.setAttribute("data-mediaid", id);
@@ -145,6 +166,7 @@ function galeryFactory(data) {
     const close = document.getElementById("close");
     close.onclick = function () {
       modal.classList.remove("show");
+      galerieContent.removeChild(galerieContent.lastChild);
     };
 
     figureGalery.appendChild(legendGalery).lastChild;

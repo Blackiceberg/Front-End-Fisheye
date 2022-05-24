@@ -225,6 +225,7 @@ figcaption{
     height: 300px;
     width: 350px;
     object-fit: cover;
+    object-position: top;
 }
 
 .legend-title{
@@ -292,39 +293,42 @@ a::before {
 }
 
 .modal-content{
-
     width: 90%;
     margin: auto;
     max-height: 1200px;
     position: fixed;
     top: 50%;
     left: 50%;
+    min-height: 900px;
     transform: translate(-50%, -50%);
+    z-index: -2;
 }
 
+
 .modal-content video{
-    width: 100%;
+    width: 90%;
 }
 
 
 .close{
     width: 42px;
-    right: 50px;
+    right: 0;
     position: absolute;
-    bottom: 260px;
+    top: 0;
   }
 
 .arrow {
     position: absolute;
+    top: 50%;
 }
 
 .left{
-    left: 50px;
+    left: 0%;
     transform: rotate(180deg);
 }
 
 .right{
-    right: 50px;
+    right: 0%;
 }
 
 .mediaShow{
@@ -334,9 +338,9 @@ a::before {
 .active{
     visibility: collapse;
 }
-.mediaShow img, .mediaShow video{
+.mediaShow img:last-child, .mediaShow video:last-child{
     width: 900px;
     height: 600px;
     object-fit: cover;
-    align-self: center;
+    object-position: 50% 50%;
 }
