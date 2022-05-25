@@ -80,14 +80,10 @@ function galeryFactory(data) {
       linkGalery.insertBefore(vidPhoto, linkGalery.firstChild);
     }
 
-    //let clonelinkGalery = linkGalery.cloneNode([true]);
-
-    //const items = document.querySelectorAll("figure");
-    //const nbSlide = items.length;
-
-    //console.table(items);
     const galerieContent = document.getElementById("modal-content");
     const items = document.querySelectorAll('[role="link"]');
+    console.table(title);
+
     let nbSlide = items.length;
     let count = 0;
 
@@ -118,7 +114,8 @@ function galeryFactory(data) {
       slideSuivant();
       galerieContent.insertAdjacentHTML(
         "beforeend",
-        `<img class="galery-medias modal-content" src='${items[count].src}' />`
+        `<div><h3>${title[count]}</h3><img class="galery-medias modal-content" src='${items[count].src}' />
+        <video class="galery-medias modal-content" autoplay="true" src='${items[count].src}'/></div>`
       );
     };
 
@@ -126,7 +123,8 @@ function galeryFactory(data) {
       slidePrecedent();
       galerieContent.insertAdjacentHTML(
         "beforeend",
-        `<img class="galery-medias modal-content" src='${items[count].src}' />`
+        `<div><h3>${title[count]}</h3><img class="galery-medias modal-content" src='${items[count].src}' />
+        <video class="galery-medias modal-content" autoplay="true" src='${items[count].src}'/></div>`
       );
     };
 

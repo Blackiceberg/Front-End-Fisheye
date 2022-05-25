@@ -335,12 +335,20 @@ a::before {
     display: flex;
 }
 
-.active{
-    visibility: collapse;
-}
+
 .mediaShow img:last-child, .mediaShow video:last-child{
     width: 900px;
     height: 600px;
     object-fit: cover;
     object-position: 50% 50%;
+}
+
+.modal-content h3{
+    font-size: 24px;
+    font-weight: 400;
+    color: #901C1C;
+    position: absolute;
+    bottom: -80px;
+    left: 60px;    
+
 }
