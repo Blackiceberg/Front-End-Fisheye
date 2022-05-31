@@ -42,7 +42,7 @@ async function displayMedia(medias) {
       galeryMedia.appendChild(UserGaleryDOM);
     }
   });
-  var compteurLike = document.getElementById("compteurLike");
+  var compteurLike = document.getElementById("totalLikes");
   compteurLike.textContent = totalLike;
 }
 
@@ -77,13 +77,6 @@ function recupForm() {
 
   return console.log(form);
 }
-
-
-
-
-
-
-
 
 initId();
 switchBTN();

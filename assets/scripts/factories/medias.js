@@ -38,21 +38,27 @@ function galeryFactory(data) {
 
     /** Picto_Like */
     const pictoLike = document.createElement("a");
-    pictoLike.classList.add("fa-solid", "fa-heart");
+    pictoLike.classList.add("fa-solid", "fa-heart", "dislike");
+    const spanTarif = document.getElementById("tarif");
+    spanTarif.textContent = `${price} €/Jour`;
+
     pictoLike.onclick = function () {
-      like.textContent = likes + 1;
-      let compteurLike = document.getElementById("compteurLike");
-      compteurLike.textContent = parseInt(compteurLike.innerHTML) + 1;
+      let compteurLike = document.getElementById("totalLikes");
+      if (pictoLike.classList.contains("dislike")) {
+        pictoLike.classList.remove("dislike");
+        like.textContent = likes + 1;
+        compteurLike.textContent = parseInt(compteurLike.innerHTML) + 1;
+        console.log(likes);
+      } else {
+        pictoLike.classList.add("dislike");
+        like.textContent = likes + 1 - 1;
+        compteurLike.textContent = parseInt(compteurLike.innerHTML) - 1;
+
+        console.log(likes);
+      }
     };
 
     const galeryMedia = document.getElementById("galeryMedia");
-    const compteurLike = document.getElementById("compteurLike");
-
-    compteurLike.textContent = `${price} € / Jours`;
-    compteurLike.insertAdjacentHTML(
-      "afterbegin",
-      `<i class="fa-solid fa-heart"></i>`
-    );
 
     /** MEDIAS => vidéo ou image */
     const modal = document.getElementById("galery_modal");
@@ -131,7 +137,10 @@ function galeryFactory(data) {
     linkGalery.onclick = function () {
       //affiché la modale
       modal.classList.add("show");
-      figureGalery.appendChild(linkGalery);
+      const titreImgGalery = document.createElement("h3");
+      titreImgGalery.textContent = title;
+      galerieContent.appendChild(titreImgGalery);
+
       if (image) {
         const imgPhoto = document.createElement("img");
         imgPhoto.classList.add("galery-medias");
@@ -154,7 +163,6 @@ function galeryFactory(data) {
         vidPhoto.setAttribute("role", "link");
         vidPhoto.setAttribute("tabindex", 0);
         vidPhoto.setAttribute("autoplay", "true");
-
         galerieContent.appendChild(vidPhoto);
       }
       /**contenu de la modal galery */
@@ -187,19 +195,7 @@ function galeryFactory(data) {
 
   /*
 
-  const galeryModal = document.getElementById("galery_modal");
-  console.log(galeryModal)
-  galeryModal.appendChild(img);
-  const links = document.querySelectorAll('a [role="link"]');
-  console.log(links);
-  // ajoute l'écouteur sur les liens 
-  for (let link of links){
-    link.addEventListener("click", function(e){
-    //on desactive le comportement des links
-    e.preventDefault();
 
-    //On ajoute l'image
-    const media = modal.querySelector("#modal-content img");
 
 
     
