@@ -88,13 +88,13 @@ function galeryFactory(data) {
 
     const galerieContent = document.getElementById("modal-content");
     const items = document.querySelectorAll('[role="link"]');
+
     console.table(title);
 
     let nbSlide = items.length;
     let count = 0;
 
     function slideSuivant() {
-      galerieContent.removeChild(galerieContent.lastChild);
       if (count < nbSlide - 1) {
         count++;
       } else {
@@ -104,7 +104,6 @@ function galeryFactory(data) {
     }
 
     function slidePrecedent() {
-      galerieContent.removeChild(galerieContent.lastChild);
       if (count > 0) {
         count--;
       } else {
@@ -112,34 +111,41 @@ function galeryFactory(data) {
         console.log(count);
       }
     }
+    function nextMedia() {
+      let titreImgGalery = document.createElement("h3");
+      titreImgGalery.textContent = title;
+      live.appendChild(titreImgGalery);
+
+      if (video) {
+        live.innerHTML = `${titreImgGalery}
+        <video class="galery-medias modal-content" autoplay="true" src='${items[count].src}'/>`;
+      } else if (image) {
+        live.innerHTML = `<h3>${titreImgGalery}</h3>
+        <img class="galery-medias modal-content" src='${items[count].src}'/>`;
+      }
+    }
 
     const suivant = document.querySelector(".right");
     const precedent = document.querySelector(".left");
+    const live = document.querySelector("#live");
 
     suivant.onclick = function () {
       slideSuivant();
-      galerieContent.insertAdjacentHTML(
-        "beforeend",
-        `<div><h3>${title[count]}</h3><img class="galery-medias modal-content" src='${items[count].src}' />
-        <video class="galery-medias modal-content" autoplay="true" src='${items[count].src}'/></div>`
-      );
+      nextMedia();
     };
 
     precedent.onclick = function () {
       slidePrecedent();
-      galerieContent.insertAdjacentHTML(
-        "beforeend",
-        `<div><h3>${title[count]}</h3><img class="galery-medias modal-content" src='${items[count].src}' />
-        <video class="galery-medias modal-content" autoplay="true" src='${items[count].src}'/></div>`
-      );
+      nextMedia();
     };
 
     linkGalery.onclick = function () {
       //affiché la modale
       modal.classList.add("show");
+
       const titreImgGalery = document.createElement("h3");
       titreImgGalery.textContent = title;
-      galerieContent.appendChild(titreImgGalery);
+      live.appendChild(titreImgGalery);
 
       if (image) {
         const imgPhoto = document.createElement("img");
@@ -150,7 +156,7 @@ function galeryFactory(data) {
         imgPhoto.setAttribute("alt", title + ", closeup view");
         imgPhoto.setAttribute("role", "link");
         imgPhoto.setAttribute("tabindex", 0);
-        galerieContent.appendChild(imgPhoto);
+        live.appendChild(imgPhoto);
       } else {
         const vidPhoto = document.createElement("video");
         vidPhoto.classList.add("galery-medias");
@@ -163,7 +169,7 @@ function galeryFactory(data) {
         vidPhoto.setAttribute("role", "link");
         vidPhoto.setAttribute("tabindex", 0);
         vidPhoto.setAttribute("autoplay", "true");
-        galerieContent.appendChild(vidPhoto);
+        live.appendChild(vidPhoto);
       }
       /**contenu de la modal galery */
       //modal.appendChild(clonelinkGalery);

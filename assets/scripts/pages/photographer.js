@@ -50,13 +50,23 @@ const menuBTN = document.getElementById("curent-order");
 const dataBTN = document.getElementById("data");
 const popularyBTN = document.getElementById("populary");
 const titleBTN = document.getElementById("title");
-
-let btn = [dataBTN, popularyBTN, titleBTN, menuBTN];
-
-menuBTN.addEventListener("click", switchBTN);
-popularyBTN.addEventListener("click", switchBTN);
-dataBTN.addEventListener("click", switchBTN);
-titleBTN.addEventListener("click", switchBTN);
+console.log();
+let btn = ["Data", "Populaire", "Titre"];
+menuBTN.onclick = function () {
+  switchBTN();
+};
+popularyBTN.onclick = function () {
+  menuBTN.innerHTML = btn[1];
+  popularyBTN.innerHTML = menuBTN.textContent;
+};
+dataBTN.onclick = function () {
+  dataBTN.innerHTML = menuBTN.textContent;
+  menuBTN.innerHTML = btn[0];
+};
+titleBTN.onclick = function () {
+  titleBTN.innerHTML = menuBTN.textContent;
+  menuBTN.innerHTML = btn[2];
+};
 
 function switchBTN() {
   const switchBTN = document.getElementById("data-order");

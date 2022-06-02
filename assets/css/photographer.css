@@ -352,3 +352,16 @@ a::before {
     left: 60px;    
 
 }
+
+
+/*Order*/
+
+.numberOne{
+    order: 1;
+}
+.numberTwo{
+    order: 2;
+}
+.numberThree{
+    order: 3;
+}
