@@ -358,6 +358,7 @@ a::before {
 
 .numberOne{
     order: 1;
+    border-top: none!important;
 }
 .numberTwo{
     order: 2;
