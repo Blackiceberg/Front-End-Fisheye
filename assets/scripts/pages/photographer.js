@@ -57,7 +57,7 @@ menuBTN.onclick = function () {
 };
 popularyBTN.onclick = function () {
   menuBTN.innerHTML = btn[1];
-  popularyBTN.innerHTML = menuBTN.textContent;
+  popularyBTN.innerHTML =btn[0];
 };
 dataBTN.onclick = function () {
   dataBTN.innerHTML = menuBTN.textContent;

@@ -1,6 +1,5 @@
 function galeryFactory(data) {
   const { id, photographerId, title, image, video, likes, date, price } = data;
-
   let srcMedia = `assets/images/photographers/${photographerId}/`;
   if (image) {
     srcMedia += image;
@@ -25,7 +24,7 @@ function galeryFactory(data) {
     const legendGalery = document.createElement("figcaption");
 
     /** TITRES des médias */
-    const legendTitle = document.createElement("span");
+    const legendTitle = document.createElement("p");
     legendTitle.classList.add("legend-title");
     legendTitle.textContent = title;
 
@@ -70,6 +69,7 @@ function galeryFactory(data) {
       imgPhoto.setAttribute("src", srcMedia);
       imgPhoto.setAttribute("alt", title + ", closeup view");
       imgPhoto.setAttribute("role", "link");
+      imgPhoto.setAttribute("tilte", title);
       imgPhoto.setAttribute("tabindex", 0);
       linkGalery.appendChild(imgPhoto);
     } else {
@@ -89,7 +89,9 @@ function galeryFactory(data) {
     const galerieContent = document.getElementById("modal-content");
     const items = document.querySelectorAll('[role="link"]');
 
-    console.table(title);
+    const selectTilte = document.querySelectorAll("p.legend-title");
+    1234;
+    console.dir(selectTilte[2]);
 
     let nbSlide = items.length;
     let count = 0;
@@ -100,7 +102,6 @@ function galeryFactory(data) {
       } else {
         count = 0;
       }
-      console.log(count);
     }
 
     function slidePrecedent() {
@@ -108,21 +109,15 @@ function galeryFactory(data) {
         count--;
       } else {
         count = nbSlide - 1;
-        console.log(count);
       }
     }
     function nextMedia() {
-      let titreImgGalery = document.createElement("h3");
-      titreImgGalery.textContent = title;
-      live.appendChild(titreImgGalery);
-
-      if (video) {
-        live.innerHTML = `${titreImgGalery}
-        <video class="galery-medias modal-content" autoplay="true" src='${items[count].src}'/>`;
-      } else if (image) {
-        live.innerHTML = `<h3>${titreImgGalery}</h3>
-        <img class="galery-medias modal-content" src='${items[count].src}'/>`;
-      }
+      let titreImgGalery = document.getElementById("h3Img");
+      titreImgGalery.innerHTML = `${selectTilte}`;
+      let mediaSource = document.getElementById("imgPhoto");
+      mediaSource.setAttribute("src", `${items[count].src}`);
+      console.log(`${items[count].src}`);
+      console.log(`${titreImgGalery}`);
     }
 
     const suivant = document.querySelector(".right");
@@ -145,22 +140,26 @@ function galeryFactory(data) {
 
       const titreImgGalery = document.createElement("h3");
       titreImgGalery.textContent = title;
+      titreImgGalery.setAttribute("id", "h3Img");
       live.appendChild(titreImgGalery);
 
       if (image) {
         const imgPhoto = document.createElement("img");
         imgPhoto.classList.add("galery-medias");
         imgPhoto.classList.add("modal-content");
+        imgPhoto.setAttribute("id", "imgPhoto");
         imgPhoto.setAttribute("src", srcMedia);
         imgPhoto.setAttribute("data-mediaid", id);
         imgPhoto.setAttribute("alt", title + ", closeup view");
         imgPhoto.setAttribute("role", "link");
+
         imgPhoto.setAttribute("tabindex", 0);
         live.appendChild(imgPhoto);
       } else {
         const vidPhoto = document.createElement("video");
         vidPhoto.classList.add("galery-medias");
         vidPhoto.classList.add("modal-content");
+        vidPhoto.setAttribute("id", "imgPhoto");
         vidPhoto.classList.add("class", "mediaShow");
         vidPhoto.setAttribute("type", "video/mp4");
         vidPhoto.setAttribute("src", srcMedia);
