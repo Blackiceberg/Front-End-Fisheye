@@ -5,6 +5,8 @@ document.getElementById("TITRE").style.opacity = "0";
 function getPhotographerId() {
   return new URL(location.href).searchParams.get("id");
 }
+
+//Création de la page photograph
 const photographerIdURL = getPhotographerId();
 async function initId() {
   // Récupère les datas des photographes
@@ -29,7 +31,7 @@ async function displayData(photographers) {
   });
 }
 
-//display pour afficher la galery
+//display pour afficher les medias du photographe
 
 async function displayMedia(medias) {
   const galeryMedia = document.getElementById("galeryMedia");
@@ -51,7 +53,15 @@ const dataBTN = document.getElementById("data");
 const popularyBTN = document.getElementById("populary");
 const titleBTN = document.getElementById("title");
 const valueBTN = document.getElementById("data-order");
-console.log();
+
+  //filtre
+  function tir () {
+    const UserGaleryDOMTab = document.querySelectorAll(".media-figure");
+    console.log(UserGaleryDOMTab);
+    UserGaleryDOMTab.sort((a, b) => a.figure - b.figure);
+    console.log(UserGaleryDOMTab);
+  }
+
 let btn = ["Date", "Populaire", "Titre"];
 menuBTN.onclick = function () {
   switchBTN();
@@ -68,6 +78,7 @@ popularyBTN.onclick = function () {
 
   menuBTN.innerHTML = btn[1];
   switchBTN();
+  tir();
 };
 dataBTN.onclick = function () {
   dataBTN.classList.add("numberOne");

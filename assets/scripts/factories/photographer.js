@@ -74,7 +74,6 @@ function photographerFactory(data) {
     const modal = document.createElement("div");
     const modalAppC = document.getElementById("contact_modal");
 
-    const h2Modal = document.createElement("h2");
     const imgCloseModalUrl = `assets/images/icons/close.svg`;
     const imgCloseModal = document.createElement("img");
 

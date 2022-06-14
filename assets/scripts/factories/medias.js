@@ -90,8 +90,6 @@ function galeryFactory(data) {
     const items = document.querySelectorAll('[role="link"]');
 
     const selectTilte = document.querySelectorAll("p.legend-title");
-    1234;
-    console.dir(selectTilte[2]);
 
     let nbSlide = items.length;
     let count = 0;
@@ -113,11 +111,10 @@ function galeryFactory(data) {
     }
     function nextMedia() {
       let titreImgGalery = document.getElementById("h3Img");
-      titreImgGalery.innerHTML = `${selectTilte}`;
+      titreImgGalery.innerHTML = `${selectTilte[count].textContent}`;
       let mediaSource = document.getElementById("imgPhoto");
       mediaSource.setAttribute("src", `${items[count].src}`);
-      console.log(`${items[count].src}`);
-      console.log(`${titreImgGalery}`);
+      console.log(`${titreImgGalery[count]}`);
     }
 
     const suivant = document.querySelector(".right");
@@ -173,6 +170,7 @@ function galeryFactory(data) {
       /**contenu de la modal galery */
       //modal.appendChild(clonelinkGalery);
     };
+
     // fonction close
     const close = document.getElementById("close");
     close.onclick = function () {
