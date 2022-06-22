@@ -46,9 +46,7 @@ async function displayMedia(medias) {
     if (photographerIdURL == media.photographerId) {
       totalLike += media.likes;
       const galeryMediasId = galeryFactory(media);
-      console.log(media);
       petitTableau.push(media);
-      console.log(petitTableau);
 
       const UserGaleryDOM = galeryMediasId.getUserGaleryDOM();
       galeryMedia.appendChild(UserGaleryDOM);
