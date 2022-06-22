@@ -8,7 +8,7 @@ function photographerFactory(data) {
     const img = document.createElement("img");
     img.setAttribute("src", picture);
     img.setAttribute("class", `circle_img`);
-    img.setAttribute("alt", name);
+    img.setAttribute("alt", `photo de profil de ${name}`);
     const pageProfil = "photographer.html?id=" + id;
     const link = document.createElement("a");
     link.setAttribute("href", pageProfil);
@@ -38,18 +38,18 @@ function photographerFactory(data) {
     const article = document.createElement("article");
     const header = document.createElement("header");
     const h1 = document.createElement("h1");
-    const p = document.createElement("p");
+    const h2 = document.createElement("h2");
     const small = document.createElement("small");
     const linebreak = document.createElement("br");
 
     section.setAttribute("class", `photograph-header`);
     article.setAttribute("class", `photographer_profile`);
     h1.setAttribute("id", `photographer_h1`);
-    p.setAttribute("id", `photographer_location`);
+    h2.setAttribute("id", `photographer_location`);
     small.setAttribute("id", `photographer_small`);
 
     h1.textContent = name;
-    p.textContent = `${city}, ${country}`;
+    h2.textContent = `${city}, ${country}`;
     small.textContent = tagline;
 
     const button = document.createElement("button");
@@ -66,7 +66,7 @@ function photographerFactory(data) {
 
     section.appendChild(article),
       article.appendChild(h1),
-      article.appendChild(p),
+      article.appendChild(h2),
       article.appendChild(small),
       section.appendChild(button),
       section.appendChild(img);
@@ -101,18 +101,21 @@ function photographerFactory(data) {
     inputPrenom.type = "text";
     inputPrenom.setAttribute("name", `prenom`);
     inputPrenom.setAttribute("id", `prenom`);
+    inputPrenom.setAttribute("aria-label", "prenom");
 
     const nom = document.createElement("label");
     const inputNom = document.createElement("input");
     inputNom.type = "text";
     inputNom.setAttribute("name", `nom`);
     inputNom.setAttribute("id", `nom`);
+    inputNom.setAttribute("aria-label", "nom");
 
     const email = document.createElement("label");
     const inputEmail = document.createElement("input");
     inputEmail.type = "email";
     inputEmail.setAttribute("name", `Email`);
     inputEmail.setAttribute("id", `email`);
+    inputEmail.setAttribute("aria-label", "email");
 
     const message = document.createElement("label");
     message.setAttribute("for", "message");
