@@ -5,6 +5,8 @@ document.getElementById("TITRE").style.opacity = "0";
 function getPhotographerId() {
   return new URL(location.href).searchParams.get("id");
 }
+
+//Création de la page photograph
 const photographerIdURL = getPhotographerId();
 async function initId() {
   // Récupère les datas des photographes
@@ -29,7 +31,13 @@ async function displayData(photographers) {
   });
 }
 
-//display pour afficher la galery
+//display pour afficher les medias du photographe
+var petitTableau = [];
+
+/*petitTableau.sort(function (a, b) {
+  return a.likes - b.likes;
+});displayMedia(petitTableau);
+*/
 
 async function displayMedia(medias) {
   const galeryMedia = document.getElementById("galeryMedia");
@@ -38,20 +46,26 @@ async function displayMedia(medias) {
     if (photographerIdURL == media.photographerId) {
       totalLike += media.likes;
       const galeryMediasId = galeryFactory(media);
+      petitTableau.push(media);
+
       const UserGaleryDOM = galeryMediasId.getUserGaleryDOM();
       galeryMedia.appendChild(UserGaleryDOM);
+      return galeryMediasId;
     }
   });
+
   var compteurLike = document.getElementById("totalLikes");
   compteurLike.textContent = totalLike;
 }
-
 const menuBTN = document.getElementById("curent-order");
 const dataBTN = document.getElementById("data");
 const popularyBTN = document.getElementById("populary");
 const titleBTN = document.getElementById("title");
 const valueBTN = document.getElementById("data-order");
-console.log();
+
+//filtre
+const galeryMedia = document.getElementById("galeryMedia");
+
 let btn = ["Date", "Populaire", "Titre"];
 menuBTN.onclick = function () {
   switchBTN();
@@ -68,7 +82,16 @@ popularyBTN.onclick = function () {
 
   menuBTN.innerHTML = btn[1];
   switchBTN();
+  galeryMedia.innerHTML = "";
+  petitTableau = [];
+  displayMedia(medias);
+  galeryMedia.innerHTML = "";
+  petitTableau.sort(function (a, b) {
+    return a.likes - b.likes;
+  });
+  displayMedia(petitTableau);
 };
+
 dataBTN.onclick = function () {
   dataBTN.classList.add("numberOne");
   dataBTN.classList.remove("numberTwo");
@@ -81,6 +104,14 @@ dataBTN.onclick = function () {
 
   menuBTN.innerHTML = btn[0];
   switchBTN();
+  galeryMedia.innerHTML = "";
+  petitTableau = [];
+  displayMedia(medias);
+  galeryMedia.innerHTML = "";
+  petitTableau.sort(function (a, b) {
+    return a.date - b.date;
+  });
+  displayMedia(petitTableau);
 };
 
 titleBTN.onclick = function () {
@@ -94,8 +125,15 @@ titleBTN.onclick = function () {
   popularyBTN.classList.add("numberTwo");
 
   menuBTN.innerHTML = btn[2];
-
   switchBTN();
+  galeryMedia.innerHTML = "";
+  petitTableau = [];
+  displayMedia(medias);
+  galeryMedia.innerHTML = "";
+  petitTableau.sort(function (a, b) {
+    return a.price - b.price;
+  });
+  displayMedia(petitTableau);
 };
 
 function switchBTN() {

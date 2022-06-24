@@ -13,8 +13,8 @@ function galeryFactory(data) {
     /** FIGURES pour chaque médias */
     const figureGalery = document.createElement("figure");
     figureGalery.classList.add("media-figure");
-    figureGalery.setAttribute("id", "figure-" + id);
-    figureGalery.setAttribute("aria-label", "carte du média " + title);
+    figureGalery.setAttribute("id", id);
+    figureGalery.setAttribute("aria-label", title);
 
     /** LIEN VERS LA GALLERIE*/
     const linkGalery = document.createElement("div");
@@ -90,8 +90,6 @@ function galeryFactory(data) {
     const items = document.querySelectorAll('[role="link"]');
 
     const selectTilte = document.querySelectorAll("p.legend-title");
-    1234;
-    console.dir(selectTilte[2]);
 
     let nbSlide = items.length;
     let count = 0;
@@ -113,11 +111,9 @@ function galeryFactory(data) {
     }
     function nextMedia() {
       let titreImgGalery = document.getElementById("h3Img");
-      titreImgGalery.innerHTML = `${selectTilte}`;
+      titreImgGalery.innerHTML = `${selectTilte[count].textContent}`;
       let mediaSource = document.getElementById("imgPhoto");
       mediaSource.setAttribute("src", `${items[count].src}`);
-      console.log(`${items[count].src}`);
-      console.log(`${titreImgGalery}`);
     }
 
     const suivant = document.querySelector(".right");
@@ -134,6 +130,28 @@ function galeryFactory(data) {
       nextMedia();
     };
 
+    function closeGallery() {
+      modal.classList.remove("show");
+    }
+
+    window.addEventListener("keydown", function (event) {
+      switch (event.key) {
+        case "ArrowLeft":
+          slidePrecedent();
+          nextMedia();
+          break;
+        case "ArrowRight":
+          slideSuivant();
+          nextMedia();
+          break;
+        case "Escape":
+          closeModal();
+          closeGallery();
+          break;
+        default:
+          break;
+      }
+    });
     linkGalery.onclick = function () {
       //affiché la modale
       modal.classList.add("show");
@@ -173,18 +191,21 @@ function galeryFactory(data) {
       /**contenu de la modal galery */
       //modal.appendChild(clonelinkGalery);
     };
+
     // fonction close
-    const close = document.getElementById("close");
-    close.onclick = function () {
-      modal.classList.remove("show");
-      galerieContent.removeChild(galerieContent.lastChild);
+    const cleanGallery = document.getElementById("close");
+    cleanGallery.onclick = function () {
+      live.innerHTML = "";
+      closeGallery();
     };
+
+    const main = document.getElementById("main");
 
     figureGalery.appendChild(legendGalery).lastChild;
     legendGalery.appendChild(legendTitle);
     legendGalery.appendChild(like);
     legendGalery.appendChild(pictoLike);
-    galeryMedia.appendChild(compteurLike);
+    main.appendChild(compteurLike);
 
     //suivant.onclick = function slideSuivant() {
     // var elemShow = document.getElementById("showDiv");
