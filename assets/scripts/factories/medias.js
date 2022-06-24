@@ -114,7 +114,6 @@ function galeryFactory(data) {
       titreImgGalery.innerHTML = `${selectTilte[count].textContent}`;
       let mediaSource = document.getElementById("imgPhoto");
       mediaSource.setAttribute("src", `${items[count].src}`);
-      console.log(`${titreImgGalery[count]}`);
     }
 
     const suivant = document.querySelector(".right");
@@ -131,6 +130,28 @@ function galeryFactory(data) {
       nextMedia();
     };
 
+    function closeGallery() {
+      modal.classList.remove("show");
+    }
+
+    window.addEventListener("keydown", function (event) {
+      switch (event.key) {
+        case "ArrowLeft":
+          slidePrecedent();
+          nextMedia();
+          break;
+        case "ArrowRight":
+          slideSuivant();
+          nextMedia();
+          break;
+        case "Escape":
+          closeModal();
+          closeGallery();
+          break;
+        default:
+          break;
+      }
+    });
     linkGalery.onclick = function () {
       //affiché la modale
       modal.classList.add("show");
@@ -172,11 +193,12 @@ function galeryFactory(data) {
     };
 
     // fonction close
-    const close = document.getElementById("close");
-    close.onclick = function () {
-      modal.classList.remove("show");
-      galerieContent.removeChild(galerieContent.lastChild);
+    const cleanGallery = document.getElementById("close");
+    cleanGallery.onclick = function () {
+      live.innerHTML = "";
+      closeGallery();
     };
+
     const main = document.getElementById("main");
 
     figureGalery.appendChild(legendGalery).lastChild;
