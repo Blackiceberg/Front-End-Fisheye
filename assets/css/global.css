@@ -5,9 +5,25 @@
 
 /* template */
 .circle_img{
-    height: 200px;
-    border-radius: 50%;
+    height: 250px;
     object-fit: cover;
-    width: 200px;
+    width: 405px;
     margin-bottom: 1em;
   }
+
+
+.overlay{
+
+  display: none;
+}
+
+.vitrine {
+  height: 30em;
+  width: 100%;
+}
+
+.vitrine img{
+ width: 100%;
+ height: 540px;
+ object-fit: cover;
+}
