@@ -6,6 +6,8 @@ function photographerFactory(data) {
   function getUserCardDOM() {
     const article = document.createElement("article");
     const img = document.createElement("img");
+    const span = document.createElement("span");
+    span.setAttribute("class",`overlay` )
     img.setAttribute("src", picture);
     img.setAttribute("class", `circle_img`);
     img.setAttribute("alt", `photo de profil de ${name}`);
@@ -18,6 +20,7 @@ function photographerFactory(data) {
     const h4 = document.createElement("h4");
     const h5 = document.createElement("h5");
 
+
     h2.textContent = name;
     h3.textContent = `${city}, ${country}`;
     h4.textContent = tagline;
@@ -25,10 +28,11 @@ function photographerFactory(data) {
 
     article.appendChild(link),
       link.appendChild(img),
-      article.appendChild(h2),
-      article.appendChild(h3),
-      article.appendChild(h4),
-      article.appendChild(h5);
+      article.appendChild(span),
+      span.appendChild(h2),
+      span.appendChild(h3),
+      span.appendChild(h4),
+      span.appendChild(h5);
 
     return article;
   }
